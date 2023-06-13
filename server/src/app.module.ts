@@ -31,7 +31,7 @@ import { AuthModule } from './auth/auth.module';
       },
     }),
     ServeStaticModule.forRoot({
-      rootPath: join(process.cwd(), 'client/build'),
+      rootPath: join(process.cwd(), '../client/build'),
       exclude: ['/api'],
     }),
     AuthModule,

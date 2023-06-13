@@ -11,4 +11,4 @@ cd ..
 
 # Build server
 echo "Building server..."
-docker build -t server:latest .
+docker build -t server:latest server/
