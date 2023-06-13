@@ -1,0 +1,16 @@
+type Session {
+  accessToken: String!
+}
+
+input CredentialsInput {
+  username: String!
+  password: String!
+}
+
+type Query {
+  pepe: String!
+}
+
+type Mutation {
+  authenticate(credentialsInput: CredentialsInput!): Session!
+}
