@@ -1,0 +1,8 @@
+type Option {
+  id: String!
+  name: String!
+}
+
+type Query {
+  todo: String!
+}

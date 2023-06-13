@@ -1,14 +1,16 @@
+import { join } from 'path';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
-import { join } from 'path';
-import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core';
+// import { ServeStaticModule } from '@nestjs/serve-static';
 
 // Defined modules
 import { PrismaModule } from './prisma/prisma.module';
-import { ServeStaticModule } from '@nestjs/serve-static';
 import { AuthModule } from './auth/auth.module';
+import { OptionModule } from './option/option.module';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [
@@ -30,14 +32,15 @@ import { AuthModule } from './auth/auth.module';
         outputAs: 'class',
       },
     }),
-    ServeStaticModule.forRoot({
-      rootPath: join(process.cwd(), '../client/build'),
-      exclude: ['/api'],
-    }),
+    // ServeStaticModule.forRoot({
+    //   rootPath: join(process.cwd(), '../client/build'),
+    //   exclude: ['/api'],
+    // }),
     AuthModule,
     PrismaModule,
+    OptionModule,
   ],
-  controllers: [],
+  controllers: [AppController],
   providers: [],
 })
 export class AppModule {}

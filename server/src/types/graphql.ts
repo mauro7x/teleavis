@@ -8,21 +8,13 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export class CredentialsInput {
-    username: string;
-    password: string;
-}
-
-export class Session {
-    accessToken: string;
+export class Option {
+    id: string;
+    name: string;
 }
 
 export abstract class IQuery {
-    abstract pepe(): string | Promise<string>;
-}
-
-export abstract class IMutation {
-    abstract authenticate(credentialsInput: CredentialsInput): Session | Promise<Session>;
+    abstract todo(): string | Promise<string>;
 }
 
 type Nullable<T> = T | null;
