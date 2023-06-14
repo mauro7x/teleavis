@@ -23,7 +23,14 @@ export default function UserProvider({ children }) {
         if (userResponse === '' || isEmpty(userResponse)) {
           login(); // (!) Redirects
         } else {
-          setUser(JSON.parse(userResponse));
+          const { userinfo } = JSON.parse(userResponse);
+          setUser({
+            name: userinfo.name,
+            username: userinfo.preferred_username,
+            first_name: userinfo.given_name,
+            last_name: userinfo.family_name,
+            email: userinfo.email,
+          });
           setLoading(false);
         }
       } catch (error) {
