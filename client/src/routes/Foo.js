@@ -1,6 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_PUBLIC } from '../api/queries';
+import { Link } from 'react-router-dom';
 
 function Foo() {
   const { loading, data, error } = useQuery(GET_PUBLIC);
@@ -13,6 +14,7 @@ function Foo() {
       ) : (
         <p>Query loaded. Results: {JSON.stringify({ data, error })}</p>
       )}
+      <Link to={`/`}>Go back home</Link>
     </div>
   );
 }

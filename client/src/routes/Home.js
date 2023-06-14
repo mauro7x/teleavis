@@ -14,7 +14,7 @@ function Home() {
       ) : (
         <p>Query loaded. Results: {JSON.stringify({ data, error })}</p>
       )}
-      <Link to={`foo`}>Go to see some public data!</Link>
+      <Link to={`/foo`}>Go to see some public data!</Link>
     </div>
   );
 }
