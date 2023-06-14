@@ -1,0 +1,11 @@
+type Subject {
+  id: String!
+  name: String!
+  reviews: [Review]!
+  nbReviews: Int!
+  cumRating: Float!
+}
+
+type Query {
+  subjects(trackId: String): [Subject]!
+}

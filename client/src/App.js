@@ -1,11 +1,20 @@
-import * as React from 'react';
+import React from 'react';
+import { RouterProvider } from 'react-router-dom';
+import { ChakraProvider } from '@chakra-ui/react';
+import ClientProvider from './api/ClientProvider';
+import UserProvider from './api/UserProvider';
+import { router } from './routes';
 
-export default function App() {
+function App() {
   return (
-    <div>
-      <h1>Hola</h1>
-      <p>Qué tal?</p>
-      <p>Bien??</p>
-    </div>
+    <ChakraProvider>
+      <ClientProvider>
+        <UserProvider>
+          <RouterProvider router={router} />
+        </UserProvider>
+      </ClientProvider>
+    </ChakraProvider>
   );
 }
+
+export default App;

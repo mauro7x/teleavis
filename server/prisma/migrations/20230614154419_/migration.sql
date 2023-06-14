@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "Subject" ADD COLUMN     "avgRating" DOUBLE PRECISION,
+ADD COLUMN     "nbReviews" INTEGER NOT NULL DEFAULT 0;
