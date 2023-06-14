@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { isEmpty } from './utils';
-import Home from './Home';
+import Root from './routes';
 
 function App() {
   const [user, setUser] = useState();
@@ -35,7 +35,7 @@ function App() {
     );
   }
 
-  return <Home />;
+  return <Root />;
 }
 
 export default App;
