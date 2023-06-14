@@ -9,12 +9,11 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import { GraphQLWsLink } from '@apollo/client/link/subscriptions';
 import { createClient } from 'graphql-ws';
-import { useToken } from '../redux/selectors';
 import { getMainDefinition } from '@apollo/client/utilities';
 import config from '../config';
 
-const { host, route, secureProtocols } = config.api;
-const baseUrl = `${host}:3001/${route}`;
+const { host, port, route, secureProtocols } = config.api;
+const baseUrl = `${host}:${port}/${route}`;
 const wsProtocol = secureProtocols ? 'wss' : 'ws';
 const httpProtocol = secureProtocols ? 'https' : 'http';
 
@@ -31,13 +30,10 @@ const httpLink = createHttpLink({
 });
 
 const ClientProvider = ({ children }) => {
-  const token = useToken();
-
   const authLink = setContext((_, { headers }) => {
     return {
       headers: {
         ...headers,
-        authorization: token ? `Bearer ${token}` : '',
       },
     };
   });

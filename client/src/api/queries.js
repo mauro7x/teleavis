@@ -1,35 +1,13 @@
 import { gql } from '@apollo/client';
 
-export const GET_ELECTORS = gql`
+export const GET_PRIVATE = gql`
   query {
-    electors {
-      id
-      firstName
-      lastName
-      choice {
-        id
-        name
-      }
-      votedAt
-    }
+    private
   }
 `;
 
-export const GET_OPTIONS = gql`
+export const GET_PUBLIC = gql`
   query {
-    options {
-      id
-      name
-    }
-  }
-`;
-
-export const GET_RESULTS = gql`
-  query {
-    results {
-      id
-      name
-      votes
-    }
+    public
   }
 `;
