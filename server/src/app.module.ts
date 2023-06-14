@@ -9,9 +9,9 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 // Defined modules
 import { PrismaModule } from './prisma/prisma.module';
 import { AuthModule } from './auth/auth.module';
-import { OptionModule } from './option/option.module';
-// import { APP_GUARD } from '@nestjs/core';
-// import { AuthenticatedGuard } from './auth/guards/authenticated.guard';
+import { TrackModule } from './track/track.module';
+import { SubjectModule } from './subject/subject.module';
+import { ReviewModule } from './review/review.module';
 
 @Module({
   imports: [
@@ -39,14 +39,11 @@ import { OptionModule } from './option/option.module';
     }),
     AuthModule,
     PrismaModule,
-    OptionModule,
+    TrackModule,
+    SubjectModule,
+    ReviewModule,
   ],
   controllers: [],
-  providers: [
-    // {
-    //   provide: APP_GUARD,
-    //   useClass: AuthenticatedGuard,
-    // },
-  ],
+  providers: [],
 })
 export class AppModule {}

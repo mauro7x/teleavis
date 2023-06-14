@@ -1,9 +1,0 @@
-type Option {
-  id: String!
-  name: String!
-}
-
-type Query {
-  public: String!
-  private: String!
-}

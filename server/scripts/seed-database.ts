@@ -1,27 +1,39 @@
-// import * as fs from 'fs';
-import * as path from 'path';
-import * as csv from 'csvtojson';
 import { PrismaClient } from '@prisma/client';
+
+// Data
+import * as subjects from '../data/subjects.json';
+import * as tracks from '../data/study_tracks.json';
 
 const prisma = new PrismaClient();
 
-async function readCSV(filename) {
-  const filePath = path.resolve(__dirname, `../data/${filename}.csv`);
-  return csv().fromFile(filePath);
-}
+async function seedTrack({ id, name, subjects }) {
+  const subjectsData = subjects.map((subject, index) => ({
+    subjectId: subject,
+    order: index,
+  }));
 
-async function seed({ schema, filename }) {
-  const data = await readCSV(filename);
-  await prisma[schema].createMany({ data });
+  await prisma.track.create({
+    data: {
+      id,
+      name,
+      subjects: {
+        createMany: {
+          data: subjectsData,
+        },
+      },
+    },
+  });
 }
 
 async function main() {
-  // // Clear database
-  // await prisma.elector.deleteMany();
-  // await prisma.option.deleteMany();
-  // // Seed
-  // await seed({ schema: 'elector', filename: 'electors' });
-  // await seed({ schema: 'option', filename: 'options' });
+  // Clear database
+  await prisma.subjectsOnTrack.deleteMany();
+  await prisma.subject.deleteMany();
+  await prisma.track.deleteMany();
+
+  // Seed
+  await prisma.subject.createMany({ data: subjects });
+  tracks.forEach(seedTrack);
 }
 
 main()

@@ -1,0 +1,54 @@
+[
+  {
+    "id": "GIN",
+    "name": "Grandes Infrastructures Numériques",
+    "subjects": [
+      "GIN201",
+      "GIN-SR2I202",
+      "GIN203",
+      "GIN204",
+      "GIN-SR2I205",
+      "GIN206",
+      "GIN207",
+      "GIN208"
+    ]
+  },
+  { "id": "IGR", "name": "3D & Systèmes Interactifs", "subjects": [] },
+  {
+    "id": "MACS",
+    "name": "Modélisation Aléatoire et Calcul Scientifique",
+    "subjects": []
+  },
+  {
+    "id": "MODS",
+    "name": "Marchés, Organisations, Données, Stratégies",
+    "subjects": []
+  },
+  { "id": "SD", "name": "Science des Données", "subjects": [] },
+  { "id": "SLR", "name": "Systèmes Logiciels Répartis", "subjects": [] },
+  { "id": "SE", "name": "Systèmes Embarqués", "subjects": [] },
+  {
+    "id": "TSIA",
+    "name": "Traitement du Signal pour l'Intelligence Artificielle",
+    "subjects": []
+  },
+  {
+    "id": "TELECOM",
+    "name": "Télécommunications : des données aux systèmes",
+    "subjects": []
+  },
+  {
+    "id": "SR2I",
+    "name": "Sécurité des Réseaux et Infrastructures Informatiques",
+    "subjects": [
+      "SR2I201",
+      "GIN-SR2I202",
+      "SR2I203",
+      "SR2I204",
+      "GIN-SR2I205",
+      "SR2I206",
+      "SR2I207",
+      "SR2I208"
+    ]
+  }
+]

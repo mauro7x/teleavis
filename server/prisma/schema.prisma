@@ -9,3 +9,39 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Track {
+  id       String            @id
+  name     String
+  subjects SubjectsOnTrack[]
+}
+
+model Subject {
+  id        String            @id
+  name      String
+  tracks    SubjectsOnTrack[]
+  reviews   Review[]
+  nbReviews Int               @default(0)
+  cumRating Float             @default(0)
+}
+
+model SubjectsOnTrack {
+  track     Track   @relation(fields: [trackId], references: [id])
+  trackId   String
+  subject   Subject @relation(fields: [subjectId], references: [id])
+  subjectId String
+  order     Int
+
+  @@id([trackId, subjectId])
+}
+
+model Review {
+  userId    String
+  subjectId String
+  subject   Subject @relation(fields: [subjectId], references: [id])
+
+  rating  Float
+  comment String?
+
+  @@id([userId, subjectId])
+}

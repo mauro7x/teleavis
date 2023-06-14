@@ -1,0 +1,20 @@
+type Review {
+  userId: String!
+  subjectId: String!
+  rating: Float!
+  comment: String
+}
+
+type Query {
+  reviews: [Review]!
+}
+
+input CreateReviewInput {
+  subjectId: String!
+  rating: Float!
+  comment: String
+}
+
+type Mutation {
+  createReview(createReviewInput: CreateReviewInput!): Review!
+}

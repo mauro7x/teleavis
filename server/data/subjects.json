@@ -1,0 +1,28 @@
+[
+  { "id": "GIN201", "name": "IP Networks" },
+  {
+    "id": "GIN-SR2I202",
+    "name": "Security services and cryptographic mechanisms"
+  },
+  { "id": "GIN203", "name": "Applications" },
+  { "id": "GIN204", "name": "Cloud Systems" },
+  { "id": "GIN-SR2I205", "name": "Network security" },
+  { "id": "GIN206", "name": "Mobile Networks and IOT" },
+  { "id": "GIN207", "name": "Applications et services multimedia" },
+  { "id": "GIN208", "name": "Network Virtualisation & Automation" },
+  {
+    "id": "SR2I201",
+    "name": "Internet Infrastructure: basics, methods, architecture and protocols"
+  },
+  {
+    "id": "SR2I203",
+    "name": "Hacking: analysis, investigation and implementation"
+  },
+  { "id": "SR2I204", "name": "Access control and authentification" },
+  { "id": "SR2I206", "name": "Trust infrastructure and implementation" },
+  {
+    "id": "SR2I207",
+    "name": "Applications and communication protocols security"
+  },
+  { "id": "SR2I208", "name": "SR2I Projects" }
+]

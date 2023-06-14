@@ -36,7 +36,6 @@
     "@prisma/client": "4.8.0",
     "apollo-server-express": "^3.11.1",
     "connect-mongo": "^5.0.0",
-    "csvtojson": "^2.0.10",
     "express": "^4.17.1",
     "express-session": "^1.17.3",
     "graphql": "^16.6.0",

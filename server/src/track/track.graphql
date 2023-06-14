@@ -1,0 +1,8 @@
+type Track {
+  id: String!
+  name: String!
+}
+
+type Query {
+  tracks: [Track]!
+}
