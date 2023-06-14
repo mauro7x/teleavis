@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { isEmpty } from './utils';
-import Root from './routes';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './routes';
 
 function App() {
   const [user, setUser] = useState();
@@ -35,7 +36,7 @@ function App() {
     );
   }
 
-  return <Root />;
+  return <RouterProvider router={router} />;
 }
 
 export default App;

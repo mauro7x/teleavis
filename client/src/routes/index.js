@@ -1,17 +1,21 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { Navigate, createBrowserRouter } from 'react-router-dom';
 
+// Elements
 import Home from './Home';
 import Foo from './Foo';
 
-export default function Root() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route index path="/" element={<Home />} />
-        <Route path="/foo" element={<Foo />} />
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
-    </BrowserRouter>
-  );
-}
+export const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home />,
+    index: true,
+  },
+  {
+    path: '/foo',
+    element: <Foo />,
+  },
+  {
+    path: '*',
+    element: <Navigate to="/" />,
+  },
+]);

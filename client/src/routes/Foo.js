@@ -1,5 +1,5 @@
+import React from 'react';
 import { useQuery } from '@apollo/client';
-import * as React from 'react';
 import { GET_PUBLIC } from '../api/queries';
 
 function Foo() {

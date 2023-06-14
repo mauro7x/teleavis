@@ -1,5 +1,5 @@
+import React from 'react';
 import { useQuery } from '@apollo/client';
-import * as React from 'react';
 import { GET_PRIVATE } from '../api/queries';
 import { Link } from 'react-router-dom';
 
