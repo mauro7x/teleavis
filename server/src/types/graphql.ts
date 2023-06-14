@@ -14,7 +14,9 @@ export class Option {
 }
 
 export abstract class IQuery {
-    abstract todo(): string | Promise<string>;
+    abstract public(): string | Promise<string>;
+
+    abstract private(): string | Promise<string>;
 }
 
 type Nullable<T> = T | null;

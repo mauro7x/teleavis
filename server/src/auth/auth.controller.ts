@@ -7,10 +7,8 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { Response } from 'express';
-
-import { LoginGuard } from './login.guard';
+import { LoginGuard } from './guards/login.guard';
 import { Issuer } from 'openid-client';
-import { NextFn } from '@nestjs/graphql';
 
 @Controller()
 export class AuthController {

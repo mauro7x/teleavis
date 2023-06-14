@@ -4,13 +4,14 @@ import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
-// import { ServeStaticModule } from '@nestjs/serve-static';
+import { ServeStaticModule } from '@nestjs/serve-static';
 
 // Defined modules
 import { PrismaModule } from './prisma/prisma.module';
 import { AuthModule } from './auth/auth.module';
 import { OptionModule } from './option/option.module';
-import { AppController } from './app.controller';
+// import { APP_GUARD } from '@nestjs/core';
+// import { AuthenticatedGuard } from './auth/guards/authenticated.guard';
 
 @Module({
   imports: [
@@ -32,15 +33,20 @@ import { AppController } from './app.controller';
         outputAs: 'class',
       },
     }),
-    // ServeStaticModule.forRoot({
-    //   rootPath: join(process.cwd(), '../client/build'),
-    //   exclude: ['/api'],
-    // }),
+    ServeStaticModule.forRoot({
+      rootPath: join(process.cwd(), '../client/build'),
+      exclude: ['/api', '/login', '/callback', '/logout', '/user'],
+    }),
     AuthModule,
     PrismaModule,
     OptionModule,
   ],
-  controllers: [AppController],
-  providers: [],
+  controllers: [],
+  providers: [
+    // {
+    //   provide: APP_GUARD,
+    //   useClass: AuthenticatedGuard,
+    // },
+  ],
 })
 export class AppModule {}

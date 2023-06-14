@@ -4,5 +4,6 @@ type Option {
 }
 
 type Query {
-  todo: String!
+  public: String!
+  private: String!
 }

@@ -10,9 +10,6 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "incremental": true,
-
-    // "esModuleInterop": true,
-
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
     "strictNullChecks": false,
