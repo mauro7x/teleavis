@@ -2,6 +2,15 @@ import { Injectable } from '@nestjs/common';
 import { PrismaService } from '~/prisma/prisma.service';
 import { compareByOrder } from './utils';
 
+const ratingTypeToColumns = {
+  generalRating: ['nReviews', 'cumRating'],
+  teacherRating: ['nTeacherRatings', 'cumTeacherRating'],
+  amountOfWorkRating: ['nAmountOfWorkRatings', 'cumAmountOfWorkRating'],
+  difficultyRating: ['nDifficultyRatings', 'cumDifficultyRating'],
+};
+
+export type RatingType = keyof typeof ratingTypeToColumns;
+
 @Injectable()
 export class SubjectService {
   constructor(private prisma: PrismaService) {}
@@ -35,10 +44,15 @@ export class SubjectService {
     return this.prisma.subject.findMany();
   }
 
-  addRating(id: string, rating: number) {
+  addRating(id: string, type: RatingType, value: number) {
+    const [nColumn, cumColumn] = ratingTypeToColumns[type];
+
     return this.prisma.subject.update({
       where: { id },
-      data: { nbReviews: { increment: 1 }, cumRating: { increment: rating } },
+      data: {
+        [nColumn]: { increment: 1 },
+        [cumColumn]: { increment: value },
+      },
     });
   }
 }

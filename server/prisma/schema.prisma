@@ -21,8 +21,16 @@ model Subject {
   name      String
   tracks    SubjectsOnTrack[]
   reviews   Review[]
-  nbReviews Int               @default(0)
+  nReviews  Int               @default(0)
   cumRating Float             @default(0)
+
+  // Other metrics
+  nTeacherRatings       Int   @default(0)
+  cumTeacherRating      Float @default(0)
+  nAmountOfWorkRatings  Int   @default(0)
+  cumAmountOfWorkRating Float @default(0)
+  nDifficultyRatings    Int   @default(0)
+  cumDifficultyRating   Float @default(0)
 }
 
 model SubjectsOnTrack {
@@ -40,8 +48,11 @@ model Review {
   subjectId String
   subject   Subject @relation(fields: [subjectId], references: [id])
 
-  rating  Float
-  comment String?
+  rating             Float
+  comment            String?
+  amountOfWorkRating Float?
+  teacherRating      Float?
+  difficultyRating   Float?
 
   @@id([userId, subjectId])
 }

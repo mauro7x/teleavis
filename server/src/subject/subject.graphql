@@ -2,8 +2,14 @@ type Subject {
   id: String!
   name: String!
   reviews: [Review]!
-  nbReviews: Int!
+  nReviews: Int!
   cumRating: Float!
+  nAmountOfWorkRatings: Int!
+  cumAmountOfWorkRating: Float!
+  nTeacherRatings: Int!
+  cumTeacherRating: Float!
+  nDifficultyRatings: Int!
+  cumDifficultyRating: Float!
 }
 
 type Query {

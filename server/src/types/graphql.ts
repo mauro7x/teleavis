@@ -12,6 +12,9 @@ export class CreateReviewInput {
     subjectId: string;
     rating: number;
     comment?: Nullable<string>;
+    amountOfWorkRating?: Nullable<number>;
+    teacherRating?: Nullable<number>;
+    difficultyRating?: Nullable<number>;
 }
 
 export class Review {
@@ -19,6 +22,9 @@ export class Review {
     subjectId: string;
     rating: number;
     comment?: Nullable<string>;
+    amountOfWorkRating?: Nullable<number>;
+    teacherRating?: Nullable<number>;
+    difficultyRating?: Nullable<number>;
 }
 
 export abstract class IQuery {
@@ -37,8 +43,14 @@ export class Subject {
     id: string;
     name: string;
     reviews: Nullable<Review>[];
-    nbReviews: number;
+    nReviews: number;
     cumRating: number;
+    nAmountOfWorkRatings: number;
+    cumAmountOfWorkRating: number;
+    nTeacherRatings: number;
+    cumTeacherRating: number;
+    nDifficultyRatings: number;
+    cumDifficultyRating: number;
 }
 
 export class Track {
