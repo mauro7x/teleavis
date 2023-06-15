@@ -1,10 +1,9 @@
 import React, { useState, createContext, useContext, useEffect } from 'react';
 import { isEmpty } from '../utils';
-import { login } from './session';
+import { login } from '../api/session';
 import LoadingPage from '../pages/LoadingPage';
 
 const UserContext = createContext();
-
 export function useUser() {
   return useContext(UserContext);
 }
@@ -39,6 +38,14 @@ export default function UserProvider({ children }) {
     }
 
     runAsync();
+    // setUser({
+    //   name: 'Mauro Parafati',
+    //   username: 'mparafati-22',
+    //   first_name: 'Mauro',
+    //   last_name: 'Parafati',
+    //   email: 'mauro.parafati@telecom-paris.fr',
+    // });
+    // setLoading(false);
   }, []);
 
   if (loading) {

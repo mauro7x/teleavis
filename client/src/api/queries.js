@@ -8,3 +8,19 @@ export const GET_TRACKS = gql`
     }
   }
 `;
+
+export const GET_SUBJECTS = gql`
+  query ($trackId: String) {
+    subjects(trackId: $trackId) {
+      id
+      name
+      nbReviews
+      cumRating
+      reviews {
+        userId
+        rating
+        comment
+      }
+    }
+  }
+`;

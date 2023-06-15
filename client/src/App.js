@@ -1,16 +1,15 @@
 import React from 'react';
-import { RouterProvider } from 'react-router-dom';
 import { ChakraProvider } from '@chakra-ui/react';
-import ClientProvider from './api/ClientProvider';
-import UserProvider from './api/UserProvider';
-import { router } from './routes';
+import ClientProvider from './providers/ClientProvider';
+import UserProvider from './providers/UserProvider';
+import Router from './routes';
 
 function App() {
   return (
     <ChakraProvider>
       <ClientProvider>
         <UserProvider>
-          <RouterProvider router={router} />
+          <Router />
         </UserProvider>
       </ClientProvider>
     </ChakraProvider>

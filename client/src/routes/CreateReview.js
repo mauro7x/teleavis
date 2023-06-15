@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-import { useUser } from '../api/UserProvider';
+import { useUser } from '../providers/UserProvider';
 import { CREATE_REVIEW } from '../api/mutations';
 
-function Form() {
+export default function CreateReview() {
   const user = useUser();
   const [subjectId, setSubjectId] = useState('');
   const [rating, setRating] = useState(0);
@@ -50,7 +50,7 @@ function Form() {
 
   return (
     <div>
-      <h1>Form page</h1>
+      <h1>CreateReview page</h1>
       <h2>You are logged in as {user.name}</h2>
 
       <form onSubmit={handleSubmit}>
@@ -90,5 +90,3 @@ function Form() {
     </div>
   );
 }
-
-export default Form;

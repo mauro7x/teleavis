@@ -17,8 +17,6 @@ const baseUrl = `${host}:${port}/${route}`;
 const wsProtocol = secureProtocols ? 'wss' : 'ws';
 const httpProtocol = secureProtocols ? 'https' : 'http';
 
-console.debug({ secureProtocols, wsProtocol, httpProtocol });
-
 const wsLink = new GraphQLWsLink(
   createClient({
     url: wsProtocol + '://' + baseUrl,
