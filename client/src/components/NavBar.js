@@ -24,9 +24,10 @@ import {
 } from '@chakra-ui/icons';
 import { useUser } from '../providers/UserProvider';
 import ColorModeToggle from './ColorModeToggle';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 
 const DesktopNav = () => {
+  const location = useLocation();
   const { colorMode } = useColorMode();
   const linkColor = useColorModeValue('gray.600', 'gray.200');
   const linkHoverColor = useColorModeValue('gray.800', 'white');
@@ -43,6 +44,9 @@ const DesktopNav = () => {
                 to={navItem.href ?? '#'}
                 p={2}
                 fontSize={'sm'}
+                textDecorationLine={
+                  location.pathname === navItem.href ? 'underline' : 'none'
+                }
                 fontWeight={navItem.fontWeight || 500}
                 color={
                   navItem.color
@@ -305,6 +309,7 @@ export default function NavBar() {
           >
             Sign In
           </Button> */}
+          <ColorModeToggle display={{ base: '1', md: 'inline-flex' }} />
           <Button
             as={'a'}
             display={{ base: 'none', md: 'inline-flex' }}
@@ -319,7 +324,6 @@ export default function NavBar() {
           >
             Log Out
           </Button>
-          <ColorModeToggle display={{ base: '1', md: 'inline-flex' }} />
         </Stack>
       </Flex>
 
