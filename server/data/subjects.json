@@ -1,4 +1,15 @@
 [
+  { "id": "ACCQ201", "name": "Structures algébriques finies" },
+  { "id": "ACCQ202", "name": "Théorie de l'information" },
+  { "id": "ACCQ203a", "name": "Algorithmes pour l'algèbre" },
+  { "id": "ACCQ203b", "name": "Algorithmes pour l'arithmétique" },
+  { "id": "ACCQ204", "name": "Codage correcteur d'erreurs" },
+  { "id": "ACCQ205", "name": "Introduction aux courbes algébriques" },
+  {
+    "id": "ACCQ206",
+    "name": "Introduction à l'information et au calcul quantique"
+  },
+  { "id": "ACCQ207", "name": "Morceaux choisis en cryptographie mathématique" },
   { "id": "GIN201", "name": "IP Networks" },
   {
     "id": "GIN-SR2I202",
@@ -10,6 +21,217 @@
   { "id": "GIN206", "name": "Mobile Networks and IOT" },
   { "id": "GIN207", "name": "Applications et services multimedia" },
   { "id": "GIN208", "name": "Network Virtualisation & Automation" },
+  {
+    "id": "IGR201a",
+    "name": "Développement d'applications interactives 2D, 3D, Mobile et Web (partie 1)"
+  },
+  {
+    "id": "IGR201b",
+    "name": "Développement d'applications interactives 2D, 3D, Mobile et Web (partie 2)"
+  },
+  {
+    "id": "IGR202a",
+    "name": "Informatique graphique et réalité virtuelle (partie 1)"
+  },
+  {
+    "id": "IGR202b",
+    "name": "Informatique graphique et réalité virtuelle (partie 2)"
+  },
+  { "id": "IGR203a", "name": "Interaction homme-machine (partie 1)" },
+  { "id": "IGR203b", "name": "Interaction homme-machine (partie 2)" },
+  { "id": "IGR204", "name": "Visualisation" },
+  { "id": "IGR205", "name": "Séminaire de projet" },
+  {
+    "id": "IMA201a",
+    "name": "Introduction au traitement des images (partie a)"
+  },
+  {
+    "id": "IMA201b",
+    "name": "Introduction au traitement des images (partie b)"
+  },
+  {
+    "id": "IMA203",
+    "name": "Méthodes variationelles et bayésiennes et optimisation discrète"
+  },
+  {
+    "id": "IMA204",
+    "name": "Imagerie médicale et biologique / Représentation des connaissances"
+  },
+  {
+    "id": "IMA205",
+    "name": "Apprentissage pour l'image et la reconnaissance d'objets"
+  },
+  {
+    "id": "IMA206",
+    "name": "Réseaux génératifs, méthodes par patches, photographie computationnelle"
+  },
+  { "id": "IMA207", "name": "Télédectection / applications industrielles" },
+  { "id": "IMA208", "name": "Vision 3D et vidéo" },
+  {
+    "id": "MACS201a",
+    "name": "Hilbert spaces, mathematical statistics and Probability (part I)"
+  },
+  {
+    "id": "MACS201b",
+    "name": "Hilbert spaces, mathematical statistics and Probability: (part II)"
+  },
+  {
+    "id": "MACS203a",
+    "name": "Martingales and Asymptotic Statistics (part I)"
+  },
+  {
+    "id": "MACS203b",
+    "name": "Martingales and asymptotic statistics (part II)"
+  },
+  { "id": "MACS205a", "name": "Numerical analysis (part I)" },
+  { "id": "MACS205b", "name": "Numerical analysis (part II)" },
+  { "id": "MACS207a", "name": "Stochastic calculus (part I)" },
+  { "id": "MACS207b", "name": "Continuous time Markov chains and martingales" },
+
+  { "id": "MITRO201", "name": "Logique" },
+  { "id": "MITRO202", "name": "Calculabilité" },
+  { "id": "MITRO203", "name": "Complexité" },
+  {
+    "id": "MITRO205",
+    "name": "Optimisation combinatoire et analyse combinatoire"
+  },
+  { "id": "MITRO206", "name": "Théories des jeux" },
+  { "id": "MITRO207", "name": "Calcul réparti par topologie combinatoire" },
+  { "id": "MITRO208", "name": "Algorithmique avancée" },
+  { "id": "MITRO209", "name": "Graphes et partitionnement de données" },
+  { "id": "MODS215", "name": "Management stratégique des entreprises" },
+  { "id": "MODS202", "name": "Econometrics" },
+  { "id": "MODS201", "name": "Microeconomics and Industrial Organization" },
+  { "id": "MODS214", "name": "Economics of sustainable development and IT" },
+  { "id": "MODS205", "name": "Digital Finance" },
+  {
+    "id": "MODS203",
+    "name": "Data analysis in economics 1: Collection and Visualization"
+  },
+  {
+    "id": "MODS213",
+    "name": "Incuber et accompagner un projet entrepreneurial innovant"
+  },
+  { "id": "MODS211", "name": "Culture et pratique de la data" },
+  { "id": "MODS212", "name": "Ethical challenges and AI" },
+  { "id": "MODS204", "name": "Platform economics" },
+  {
+    "id": "MODS206",
+    "name": "Data analysis in economics 2: Applied Econometrics"
+  },
+  {
+    "id": "MODS210",
+    "name": "Management durable de la transformation numérique et des systèmes d'information"
+  },
+  { "id": "MODS207", "name": "Applied Projects" },
+  { "id": "RIO201", "name": "IoT sans fil" },
+  { "id": "RIO202", "name": "Réseaux cellulaires" },
+  { "id": "RIO203", "name": "Plateformes et applications IoT" },
+  { "id": "RIO204", "name": "Réseaux mobiles" },
+  {
+    "id": "RIO205",
+    "name": "Réseaux mobiles et virtualisation: méthodes de déploiement et cybersécurité"
+  },
+  { "id": "RIO206", "name": "Réseaux mobiles avancés" },
+  { "id": "RIO207", "name": "Ingénierie radio" },
+  { "id": "RIO208", "name": "Modélisation stochastique" },
+  {
+    "id": "SD201",
+    "name": "Mining of Large Datasets"
+  },
+  { "id": "SD202", "name": "Databases" },
+  {
+    "id": "SD-TSIA204",
+    "name": "Statistics: linear models/Statistique : modèles linéaires"
+  },
+  { "id": "SD-TSIA211", "name": "Optimization for Machine Learning" },
+  { "id": "SD-TSIA210", "name": "Machine Learning" },
+  { "id": "SD212", "name": "Graph Mining" },
+  { "id": "SD-TSIA205", "name": "Advanced Statistics/Statistique avancée" },
+  {
+    "id": "SD206",
+    "name": "Logic and Knowledge Representation"
+  },
+  {
+    "id": "SD213",
+    "name": "Cognitive approach to Natural Language Processing"
+  },
+  {
+    "id": "SD-TSIA214",
+    "name": "Machine Learning for Text Mining (option apprentissage statistique)"
+  },
+  { "id": "SE201", "name": "Support d'exécution" },
+  { "id": "SE202", "name": "Rust" },
+  {
+    "id": "SE203a",
+    "name": "Outils, langages et pratique des systèmes à microprocesseurs (partie I)"
+  },
+  {
+    "id": "SE203b",
+    "name": "Outils, langages et pratique des systèmes à microprocesseurs (partie II)"
+  },
+  { "id": "SE204", "name": "Architectures reconfigurables et langages HDL" },
+  { "id": "SE205", "name": "Programmation concurrente" },
+  { "id": "SE206", "name": "Modélisation, génération de code et vérification" },
+  {
+    "id": "SE208",
+    "name": "Electronique pour la conception des systèmes embarqués"
+  },
+  {
+    "id": "SE209",
+    "name": "Introduction à la conception des systèmes sur puce"
+  },
+  {
+    "id": "SLR201",
+    "name": "Programmation Avancée et Gestion de Projet (en Java)"
+  },
+  { "id": "SLR202", "name": "Modélisation et Conception de Système Logiciel" },
+  {
+    "id": "SLR203",
+    "name": "Introduction aux technologies de développement de logiciel réparti"
+  },
+  {
+    "id": "SLR204",
+    "name": "Bases de la vérification des systèmes distribués"
+  },
+  { "id": "SLR206a", "name": "Fondements des algorithmes répartis (partie A)" },
+  {
+    "id": "SLR207",
+    "name": "Technologies de calcul parallèle à grande échelle"
+  },
+  { "id": "SLR209", "name": "Séminaire ou projet de la filière SLR" },
+  { "id": "SLR210", "name": "Blockchain: bases algorithmiques" },
+  {
+    "id": "TELECOM201a",
+    "name": "Systèmes de communications sans fil (partie A)"
+  },
+  {
+    "id": "TELECOM201b",
+    "name": "Systèmes de communications sans fil (partie B)"
+  },
+  {
+    "id": "TELECOM202a",
+    "name": "Théorie des communications numériques (partie A)"
+  },
+  {
+    "id": "TELECOM202b",
+    "name": "Théorie des communications numériques (partie B)"
+  },
+  { "id": "TELECOM203", "name": "Communications optiques" },
+  { "id": "TELECOM204", "name": "Accès et ordonnancement" },
+  {
+    "id": "TELECOM205",
+    "name": "Projet de synthèse : système de communications"
+  },
+  { "id": "TSIA201", "name": "Représentations des signaux" },
+  { "id": "TSIA202a", "name": "Séries chronologiques (partie 1)" },
+  { "id": "TSIA202b", "name": "Séries chronologiques (partie 2)" },
+  { "id": "TSIA203", "name": "Introduction to deep learning" },
+  {
+    "id": "TSIA206",
+    "name": "Analyse des signaux de musique et de parole : méthodes et applications"
+  },
+
   {
     "id": "SR2I201",
     "name": "Internet Infrastructure: basics, methods, architecture and protocols"
@@ -24,5 +246,246 @@
     "id": "SR2I207",
     "name": "Applications and communication protocols security"
   },
-  { "id": "SR2I208", "name": "SR2I Projects" }
+  { "id": "SR2I208", "name": "SR2I Projects" },
+  {
+    "id": "DROIT-COMP",
+    "name": "Comparative International Law"
+  },
+  {
+    "id": "DROIT-TECH",
+    "name": "Droit des technologies de l'information et de la communic..."
+  },
+  {
+    "id": "DROIT-TRAV",
+    "name": "Droit du travail"
+  },
+
+  {
+    "id": "HUM-TANDEM",
+    "name": "Projet Tandem Langues et Cultures"
+  },
+  {
+    "id": "HUM203",
+    "name": "Questions de philosophie"
+  },
+  {
+    "id": "HUM204",
+    "name": "Les mystères de la musique classique"
+  },
+  {
+    "id": "HUM205",
+    "name": "Le corps politique : Citoyenneté, techniques du corps et ..."
+  },
+  {
+    "id": "HUM206",
+    "name": "La philosophie des sciences aujourd'hui"
+  },
+  {
+    "id": "HUM207",
+    "name": "Enjeux politiques contemporains"
+  },
+  {
+    "id": "HUM208",
+    "name": "Sociologie générale"
+  },
+  {
+    "id": "HUM212",
+    "name": "Introduction à la psychanalyse"
+  },
+  {
+    "id": "HUM215",
+    "name": "Comprendre l'architecture aujourd'hui"
+  },
+  {
+    "id": "HUM216",
+    "name": "Design et information : une histoire de liaisons"
+  },
+  {
+    "id": "HUM217",
+    "name": "Biographie d'objet (Ce que les objets disent de nous : un..."
+  },
+  {
+    "id": "HUM219",
+    "name": "Histoire de l'invention en musique"
+  },
+
+  {
+    "id": "HUM222",
+    "name": "Humanities"
+  },
+  {
+    "id": "HUM224",
+    "name": "Hommes, technologies, sociétés : approches anthropologiqu..."
+  },
+  {
+    "id": "HUM225",
+    "name": "Les écritures visuelles de l'histoire"
+  },
+  {
+    "id": "IA225",
+    "name": "Algorithmic Information and A.I"
+  },
+  {
+    "id": "INF203",
+    "name": "Web Development"
+  },
+  {
+    "id": "INF224",
+    "name": "Paradigmes de programmation, théorie et pratique"
+  },
+  {
+    "id": "INF280",
+    "name": "Préparation aux concours de programmation"
+  },
+  {
+    "id": "IT201",
+    "name": "Innovation technologique"
+  },
+  {
+    "id": "MDI210",
+    "name": "Optimisation continue et analyse numérique"
+  },
+  {
+    "id": "MDI220",
+    "name": "Statistiques"
+  },
+  {
+    "id": "MDI221",
+    "name": "Statistiques (ALT)"
+  },
+  {
+    "id": "MDI230",
+    "name": "Files d'attente"
+  },
+  {
+    "id": "SES201",
+    "name": "Economie du numérique"
+  },
+  {
+    "id": "SES202",
+    "name": "Finance d'entreprise"
+  },
+  {
+    "id": "SES204",
+    "name": "Internet and society"
+  },
+  {
+    "id": "SES206",
+    "name": "Cinéma, société et management"
+  },
+  {
+    "id": "SES207",
+    "name": "Sociologie du numérique contemporain"
+  },
+  {
+    "id": "SES209",
+    "name": "Entrepreneuriat et innovation numérique"
+  },
+  {
+    "id": "SES210",
+    "name": "Sociologie du numérique"
+  },
+  {
+    "id": "SES211",
+    "name": "Innovation responsable : Green IT, écoconception et autre..."
+  },
+  {
+    "id": "SES212",
+    "name": "Introduction au Management (MODS215)"
+  },
+  {
+    "id": "SES213",
+    "name": "Interactions sociales, Technologies, Usages"
+  },
+  {
+    "id": "SES214",
+    "name": "Business Economics for Strategy and Innovation"
+  },
+  {
+    "id": "SES215",
+    "name": "Interaction design : prototyping"
+  },
+  {
+    "id": "SES216",
+    "name": "Interaction design : user research"
+  },
+  {
+    "id": "SI221a",
+    "name": "Bases de l'apprentissage : théorie et algorithmes"
+  },
+  {
+    "id": "SI221b",
+    "name": "Bases de l'apprentissage : approche algorithmique"
+  },
+  {
+    "id": "TSE202",
+    "name": "Un numérique responsable pour innover"
+  },
+  {
+    "id": "TSE203",
+    "name": "Comment construire un numérique responsable et inclusif ?"
+  },
+
+  { "id": "FH112", "name": "Atelier d'exploration d'une pratique artistique" },
+  { "id": "FH115", "name": "Théâtre d'Improvisation" },
+  { "id": "FH120", "name": "English Theatre" },
+  { "id": "FH130", "name": "Théâtre Français" },
+  { "id": "FH177", "name": "Création radio" },
+  { "id": "FH201", "name": "Engagement social pour l'éducation" },
+  {
+    "id": "FH202",
+    "name": "Atelier d'écriture créative pour non francophones"
+  },
+  { "id": "FH204", "name": "Travailler en équipe dans une association" },
+  { "id": "FH205", "name": "Un temps pour soi : sophrologie" },
+  { "id": "FH206", "name": "Art Oratoire et leadership par le corps" },
+  { "id": "FH207", "name": "Communication pour non francophones" },
+  { "id": "FH209", "name": "Mener une discussion orientée vers l'accord" },
+  { "id": "FH211", "name": "Expression orale" },
+  { "id": "FH215", "name": "Art Oratoire: techniques et outils" },
+  { "id": "FH216", "name": "Manager et travailler en équipe" },
+  { "id": "FH220", "name": "Conduire une négociation" },
+  {
+    "id": "FH222",
+    "name": "Savoir valoriser son profil international pour non-francophones"
+  },
+  { "id": "FH240", "name": "Atelier de création vidéo" },
+  { "id": "FH242", "name": "« C'est (vraiment) toi qui décide ?»" },
+  { "id": "FH243", "name": "Manager comme un chef d'orchestre" },
+  {
+    "id": "FH253",
+    "name": "Managing Communication in an International Context"
+  },
+  {
+    "id": "FH261",
+    "name": "Apprendre à voir, par le détour des arts plastiques"
+  },
+  { "id": "FH263", "name": "La voix humaine et ses enjeux" },
+  { "id": "FH265", "name": "L'activisme à l'heure du numérique" },
+  { "id": "FH267", "name": "Solidarité numérique" },
+  { "id": "FH270", "name": "Leadership pour non francophones" },
+  { "id": "FH274", "name": "Le pitch : une expérience humaine" },
+  {
+    "id": "FH278",
+    "name": "Leadership et coopération: la carte de l'équilibre"
+  },
+  { "id": "FH279", "name": "Prise de parole en public" },
+  { "id": "FH280", "name": "Gagner confiance en soi et avec les autres" },
+  { "id": "FH281", "name": "Le cercle de l'éloquence" },
+  { "id": "FH282", "name": "Compétences humaines et leadership" },
+  { "id": "FH283", "name": "Intelligence collective et théorie U" },
+  { "id": "FH284", "name": "Cultiver son intelligence relationnelle" },
+  {
+    "id": "FH286",
+    "name": "Management au féminin à travers les séries télévisées"
+  },
+  { "id": "FH287", "name": "A la découverte de mes super pouvoirs" },
+  { "id": "FH288", "name": "Dessiner la vie" },
+  { "id": "FH290", "name": "Tournoi Debating FDA" },
+  { "id": "FH291", "name": "Dialogue des diversités" },
+  { "id": "FH293", "name": "Tandem Franco-Allemand" },
+  {
+    "id": "FH294",
+    "name": "Initiation à la littérature de science fiction et atelier..."
+  }
 ]

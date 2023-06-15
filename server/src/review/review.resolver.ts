@@ -37,7 +37,7 @@ export class ReviewResolver {
   ) {
     if (await this.reviewService.exists(user.id, createReviewInput.subjectId)) {
       throw new ConflictException(
-        'You have already created one review for this subject',
+        'You have already created a review for this subject',
       );
     }
 

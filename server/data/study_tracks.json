@@ -1,5 +1,19 @@
 [
   {
+    "id": "ACCQ",
+    "name": "Algèbre appliquée : cryptographie, information quantique, codage",
+    "subjects": [
+      "ACCQ201",
+      "ACCQ202",
+      "ACCQ203a",
+      "ACCQ203b",
+      "ACCQ204",
+      "ACCQ205",
+      "ACCQ206",
+      "ACCQ207"
+    ]
+  },
+  {
     "id": "GIN",
     "name": "Grandes Infrastructures Numériques",
     "subjects": [
@@ -13,29 +27,139 @@
       "GIN208"
     ]
   },
-  { "id": "IGR", "name": "3D & Systèmes Interactifs", "subjects": [] },
+  {
+    "id": "IGR",
+    "name": "3D & Systèmes Interactifs",
+    "subjects": [
+      "IGR201a",
+      "IGR201b",
+      "IGR202a",
+      "IGR202b",
+      "IGR203a",
+      "IGR203b",
+      "IGR204",
+      "IGR205"
+    ]
+  },
+  {
+    "id": "IMA",
+    "name": "Image",
+    "subjects": [
+      "IMA201a",
+      "IMA201b",
+      "IMA203",
+      "IMA204",
+      "IMA205",
+      "IMA206",
+      "IMA207",
+      "IMA208"
+    ]
+  },
   {
     "id": "MACS",
     "name": "Modélisation Aléatoire et Calcul Scientifique",
-    "subjects": []
+    "subjects": [
+      "MACS201a",
+      "MACS201b",
+      "MACS203a",
+      "MACS203b",
+      "MACS205a",
+      "MACS205b",
+      "MACS207a",
+      "MACS207b"
+    ]
+  },
+  {
+    "id": "MITRO",
+    "name": "Mathématique, Informatique théorique et Recherche opérationnelle",
+    "subjects": [
+      "MITRO201",
+      "MITRO202",
+      "MITRO203",
+      "MITRO205",
+      "MITRO206",
+      "MITRO207",
+      "MITRO208",
+      "MITRO209"
+    ]
   },
   {
     "id": "MODS",
     "name": "Marchés, Organisations, Données, Stratégies",
-    "subjects": []
+    "subjects": [
+      "MODS215",
+      "MODS202",
+      "MODS201",
+      "MODS214",
+      "MODS205",
+      "MODS203",
+      "MODS213",
+      "MODS211",
+      "MODS212",
+      "MODS204",
+      "MODS206",
+      "MODS210",
+      "MODS207"
+    ]
   },
-  { "id": "SD", "name": "Science des Données", "subjects": [] },
-  { "id": "SLR", "name": "Systèmes Logiciels Répartis", "subjects": [] },
-  { "id": "SE", "name": "Systèmes Embarqués", "subjects": [] },
   {
-    "id": "TSIA",
-    "name": "Traitement du Signal pour l'Intelligence Artificielle",
-    "subjects": []
+    "id": "RIO",
+    "name": "Réseaux mobiles et Internet des Objets",
+    "subjects": [
+      "RIO201",
+      "RIO202",
+      "RIO203",
+      "RIO204",
+      "RIO205",
+      "RIO206",
+      "RIO207",
+      "RIO208"
+    ]
   },
   {
-    "id": "TELECOM",
-    "name": "Télécommunications : des données aux systèmes",
-    "subjects": []
+    "id": "SD",
+    "name": "Science des Données",
+    "subjects": [
+      "SD201",
+      "SD202",
+      "SD-TSIA204",
+      "SD-TSIA211",
+      "SD-TSIA210",
+      "SD212",
+      "SD-TSIA205",
+      "SD206",
+      "SD213",
+      "SD-TSIA214"
+    ]
+  },
+  {
+    "id": "SE",
+    "name": "Systèmes Embarqués",
+    "subjects": [
+      "SE201",
+      "SE202",
+      "SE203a",
+      "SE203b",
+      "SE204",
+      "SE205",
+      "SE206",
+      "SE208",
+      "SE209"
+    ]
+  },
+  {
+    "id": "SLR",
+    "name": "Systèmes Logiciels Répartis",
+    "subjects": [
+      "SLR201",
+      "SLR202",
+      "SLR203",
+      "SLR204",
+      "SLR206a",
+      "SLR207",
+      "SLR209",
+      "SLR210"
+    ]
   },
   {
     "id": "SR2I",
@@ -49,6 +173,142 @@
       "SR2I206",
       "SR2I207",
       "SR2I208"
+    ]
+  },
+  {
+    "id": "TELECOM",
+    "name": "Télécommunications : des données aux systèmes",
+    "subjects": [
+      "TELECOM201a",
+      "TELECOM201b",
+      "TELECOM202a",
+      "TELECOM202b",
+      "TELECOM203",
+      "TELECOM204",
+      "TELECOM205"
+    ]
+  },
+  {
+    "id": "TSIA",
+    "name": "Traitement du Signal pour l'Intelligence Artificielle",
+    "subjects": [
+      "TSIA201",
+      "TSIA202a",
+      "SD-TSIA204",
+      "SD-TSIA211",
+      "SD-TSIA210",
+      "TSIA202b",
+      "SD-TSIA205",
+      "TSIA203",
+      "TSIA206",
+      "SD-TSIA214"
+    ]
+  },
+  {
+    "id": "DROIT",
+    "name": "Droit",
+    "subjects": ["DROIT-COMP", "DROIT-TECH", "DROIT-TRAV"]
+  },
+  {
+    "id": "HUM",
+    "name": "Humanités Contemporaines",
+    "subjects": [
+      "HUM-TANDEM",
+      "HUM203",
+      "HUM204",
+      "HUM205",
+      "HUM206",
+      "HUM207",
+      "HUM208",
+      "HUM212",
+      "HUM215",
+      "HUM216",
+      "HUM217",
+      "HUM219",
+      "HUM222",
+      "HUM224",
+      "HUM225"
+    ]
+  },
+  {
+    "id": "CD",
+    "name": "Créneau D",
+    "subjects": [
+      "IA225",
+      "INF203",
+      "INF224",
+      "INF280",
+      "IT201",
+      "MDI210",
+      "MDI220",
+      "MDI221",
+      "MDI230",
+      "SD-TSIA210",
+      "SD202",
+      "SES201",
+      "SES202",
+      "SES204",
+      "SES206",
+      "SES207",
+      "SES209",
+      "SES210",
+      "SES211",
+      "SES212",
+      "SES213",
+      "SES214",
+      "SES215",
+      "SES216",
+      "SI221a",
+      "SI221b",
+      "TSE202",
+      "TSE203"
+    ]
+  },
+  {
+    "id": "FH",
+    "name": "Formation Humaine",
+    "subjects": [
+      "FH112",
+      "FH115",
+      "FH120",
+      "FH130",
+      "FH177",
+      "FH201",
+      "FH202",
+      "FH204",
+      "FH205",
+      "FH206",
+      "FH207",
+      "FH209",
+      "FH211",
+      "FH215",
+      "FH216",
+      "FH220",
+      "FH222",
+      "FH240",
+      "FH242",
+      "FH243",
+      "FH253",
+      "FH261",
+      "FH263",
+      "FH265",
+      "FH267",
+      "FH270",
+      "FH274",
+      "FH278",
+      "FH279",
+      "FH280",
+      "FH281",
+      "FH282",
+      "FH283",
+      "FH284",
+      "FH286",
+      "FH287",
+      "FH288",
+      "FH290",
+      "FH291",
+      "FH293",
+      "FH294"
     ]
   }
 ]

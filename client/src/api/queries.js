@@ -14,13 +14,28 @@ export const GET_SUBJECTS = gql`
     subjects(trackId: $trackId) {
       id
       name
-      nbReviews
+      nReviews
       cumRating
+      nAmountOfWorkRatings
+      cumAmountOfWorkRating
+      nDifficultyRatings
+      cumDifficultyRating
+      nTeacherRatings
+      cumTeacherRating
       reviews {
         userId
         rating
         comment
       }
+    }
+  }
+`;
+
+export const GET_SUBJECT_NAMES = gql`
+  query ($trackId: String) {
+    subjects(trackId: $trackId) {
+      id
+      name
     }
   }
 `;

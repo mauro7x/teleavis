@@ -6,6 +6,9 @@ export const CREATE_REVIEW = gql`
       userId
       subjectId
       rating
+      amountOfWorkRating
+      difficultyRating
+      teacherRating
       comment
     }
   }

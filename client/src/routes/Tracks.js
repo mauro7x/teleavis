@@ -7,7 +7,7 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 
-export default function MyReviews() {
+export default function Tracks() {
   const descriptionTextColor = useColorModeValue('gray.500', 'gray.300');
 
   return (

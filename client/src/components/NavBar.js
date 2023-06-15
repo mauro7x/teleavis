@@ -215,7 +215,7 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
   {
-    label: 'Home',
+    label: 'Subjects',
     href: '/',
     // children: [
     //   {
@@ -232,8 +232,8 @@ const NAV_ITEMS: Array<NavItem> = [
   },
 
   {
-    label: 'Ranking',
-    href: '/ranking',
+    label: 'Study Tracks',
+    href: '/study-tracks',
   },
   {
     label: 'My Reviews',
@@ -254,6 +254,9 @@ export default function NavBar() {
   return (
     <Box>
       <Flex
+        // as="header"
+        // position="fixed"
+        // w="100%"
         bg={useColorModeValue('white', 'gray.800')}
         color={useColorModeValue('gray.600', 'white')}
         minH={'60px'}

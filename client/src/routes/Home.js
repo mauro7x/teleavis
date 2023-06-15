@@ -9,102 +9,150 @@ import {
   Box,
   Container,
   Heading,
-  Select,
-  Spinner,
+  List,
+  ListItem,
+  SimpleGrid,
   Stack,
   Text,
   useColorModeValue,
 } from '@chakra-ui/react';
-
 import { useQuery } from '@apollo/client';
-import { GET_SUBJECTS, GET_TRACKS } from '../api/queries';
-import { Rating } from '@mui/material';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
+import { GET_SUBJECTS } from '../api/queries';
+import ThemedSpinner from '../components/ThemedSpinner';
+import SelectTrack from '../components/SelectTrack';
+import {
+  DifficultyRating,
+  Rating,
+  RatingInfo,
+  WorkRating,
+} from '../components/ratings';
+import { computeRating } from '../utils';
 
-const ThemedSpinner = (props) => <Spinner color="red.400" {...props} />;
+const Reviews = ({ data }) => {
+  const bgColor = useColorModeValue('gray.100', 'gray.900');
+  const textColor = useColorModeValue('gray.500', 'gray.300');
 
-const SelectTrack = ({ tracks, onChange, ...props }) => {
-  const textColor = useColorModeValue('gray.600', 'gray.200');
-  const bgColor = useColorModeValue('white', 'gray.800');
+  const reviews = data.filter(
+    (review) => review.comment && review.comment.trim() !== '',
+  );
+
+  if (!reviews.length) {
+    return <Text>No comments yet</Text>;
+  }
 
   return (
-    <Select
-      placeholder="Select a study track"
-      onChange={onChange}
-      color={textColor}
-      bg={bgColor}
-      {...props}
-    >
-      {tracks.map((track) => (
-        <option key={track.id} value={track.id}>
-          {track.id} - {track.name}
-        </option>
+    <List spacing={{ base: 3, md: 3 }}>
+      {reviews.map((review, index) => (
+        <ListItem
+          key={index}
+          rounded={'md'}
+          width={'full'}
+          bg={bgColor}
+          display="flex"
+          alignItems="center"
+        >
+          <Text p={3} color={textColor} as="i">
+            "{review.comment}"
+          </Text>
+        </ListItem>
       ))}
-    </Select>
+    </List>
   );
 };
 
-const SubjectItem = ({
-  subject: { id, name, reviews, nbReviews, cumRating },
-  ...props
+const SubjectItemDetails = ({
+  subject: {
+    nReviews,
+    cumRating,
+    nAmountOfWorkRatings,
+    cumAmountOfWorkRating,
+    nDifficultyRatings,
+    cumDifficultyRating,
+    nTeacherRatings,
+    cumTeacherRating,
+    reviews,
+  },
 }) => {
-  const rating = nbReviews > 0 ? (cumRating / nbReviews).toFixed(1) : null;
-  const ratingBorderColor = useColorModeValue('default', '#999999');
+  return (
+    <Stack spacing={{ base: 5, md: 5 }} width="full">
+      <SimpleGrid
+        columns={{ base: 1, md: 4 }}
+        spacing={{ base: 5, md: 10 }}
+        width="full"
+      >
+        <RatingInfo
+          component={DifficultyRating}
+          title={'Difficulty'}
+          nRatings={nDifficultyRatings}
+          cumRating={cumDifficultyRating}
+        />
+        <RatingInfo
+          component={WorkRating}
+          title={'Amount of work'}
+          nRatings={nAmountOfWorkRatings}
+          cumRating={cumAmountOfWorkRating}
+        />
+        <RatingInfo
+          component={Rating}
+          title={'Teacher(s) rating'}
+          nRatings={nTeacherRatings}
+          cumRating={cumTeacherRating}
+        />
+        <RatingInfo
+          component={Rating}
+          title={'Overall subject rating'}
+          nRatings={nReviews}
+          cumRating={cumRating}
+          fontWeight={700}
+        />
+      </SimpleGrid>
+      <Reviews data={reviews} />
+    </Stack>
+  );
+};
+
+const SubjectItem = ({ subject, ...props }) => {
+  const { nReviews, cumRating } = subject;
+  const rating = computeRating(nReviews, cumRating);
 
   return (
     <AccordionItem {...props}>
       {({ isExpanded }) => (
         <>
           <h2>
-            <AccordionButton>
+            <AccordionButton py={4}>
               <Box as="span" flex="1" textAlign="left">
                 <Badge fontSize={'md'} marginRight={2}>
-                  {id}
+                  {subject.id}
                 </Badge>
-                {name}
+                {subject.name}
               </Box>
               <Box textAlign="right" display="flex" alignItems="center">
-                {rating !== null && (
+                {!isExpanded && rating !== null && (
                   <Text fontSize={'sm'} marginRight={2}>
-                    {rating}
+                    {rating.toFixed(1)}
                   </Text>
                 )}
-                <Rating
-                  value={rating ?? 0}
-                  disabled={rating === null}
-                  precision={0.5}
-                  emptyIcon={
-                    <StarBorderIcon
-                      fontSize="inherit"
-                      style={{ color: ratingBorderColor }}
-                    />
-                  }
-                  readOnly
-                />
-                <Text marginLeft={2} fontSize={'sm'}>
-                  ({nbReviews})
-                </Text>
+                {!isExpanded && (
+                  <Rating
+                    value={rating}
+                    disabled={rating === null}
+                    precision={0.5}
+                    readOnly
+                  />
+                )}
+                {!isExpanded && (
+                  <Text marginLeft={2} fontSize={'sm'}>
+                    ({nReviews})
+                  </Text>
+                )}
                 <AccordionIcon marginLeft={5} />
               </Box>
             </AccordionButton>
           </h2>
 
           <AccordionPanel pb={4}>
-            {reviews.length ? (
-              <ul>
-                {reviews
-                  .filter(
-                    (review) => review.comment && review.comment.trim() !== '',
-                  )
-                  .map((review, index) => (
-                    <li key={index}>
-                      {review.comment} ({review.rating}/5)
-                    </li>
-                  ))}
-              </ul>
-            ) : (
-              <p>No reviews yet</p>
-            )}
+            <SubjectItemDetails subject={subject} />
           </AccordionPanel>
         </>
       )}
@@ -113,15 +161,16 @@ const SubjectItem = ({
 };
 
 const SubjectsList = ({ trackId }) => {
+  const textColor = useColorModeValue('gray.600', 'gray.200');
+  const boxBgColor = useColorModeValue('white', 'gray.800');
   const { loading, error, data } = useQuery(GET_SUBJECTS, {
     variables: { trackId },
   });
 
-  const textColor = useColorModeValue('gray.600', 'gray.200');
-  const boxBgColor = useColorModeValue('white', 'gray.800');
-
   if (loading) return <ThemedSpinner />;
   if (error) return <p>Error: {error.message}</p>;
+
+  const subjects = data.subjects;
 
   return (
     <Accordion
@@ -132,11 +181,12 @@ const SubjectsList = ({ trackId }) => {
       color={textColor}
       allowMultiple
     >
-      {data.subjects.map((subject, index) => (
+      {subjects.map((subject, index) => (
         <SubjectItem
           key={subject.id}
           subject={subject}
           borderTop={index === 0 ? 'none' : '-moz-initial'}
+          borderBottom={index === subjects.length - 1 ? 'none' : '-moz-initial'}
         />
       ))}
     </Accordion>
@@ -144,64 +194,48 @@ const SubjectsList = ({ trackId }) => {
 };
 
 export default function Home() {
-  const { error, loading, data } = useQuery(GET_TRACKS);
-  const bgColor = useColorModeValue('gray.50', 'gray.900');
   const descriptionTextColor = useColorModeValue('gray.500', 'gray.300');
-
   const [selectedTrackId, setSelectedTrackId] = useState('');
-
-  const handleSelectChange = useCallback(
-    (event) => {
-      setSelectedTrackId(event.target.value);
-    },
+  const onSelectTrackId = useCallback(
+    (e) => setSelectedTrackId(e.target.value),
     [setSelectedTrackId],
   );
 
-  if (error) return <p>Error: {error.message}</p>;
-
   return (
-    <Container maxW={'full'} bg={bgColor} minHeight={'100vh'}>
-      <Container maxW={'5xl'}>
-        <Stack
-          textAlign={'center'}
-          align={'center'}
-          spacing={{ base: 8, md: 10 }}
-          py={{ base: 8, md: 10 }}
+    <Container maxW={'5xl'}>
+      <Stack
+        textAlign={'center'}
+        align={'center'}
+        spacing={{ base: 8, md: 10 }}
+        py={{ base: 8, md: 10 }}
+      >
+        <Heading
+          fontWeight={600}
+          fontSize={{ base: '3xl', sm: '4xl', md: '6xl' }}
+          lineHeight={'110%'}
         >
-          <Heading
-            fontWeight={600}
-            fontSize={{ base: '3xl', sm: '4xl', md: '6xl' }}
-            lineHeight={'110%'}
-          >
-            Welcome to{' '}
-            <Text as={'span'} color={'red.400'}>
-              Téléavis
-            </Text>
-          </Heading>
-          <Text color={descriptionTextColor} maxW={'3xl'}>
-            On this site you will find opinions and reviews from students about
-            the different subjects in the second year of Télécom Paris. To get
-            started, please select a study track below.
+          Welcome to{' '}
+          <Text as={'span'} color={'red.400'}>
+            Téléavis
           </Text>
+        </Heading>
+        <Text color={descriptionTextColor} maxW={'3xl'}>
+          On this site you will find opinions and reviews from students about
+          the different subjects in the second year of Télécom Paris. To get
+          started, please select a study track below.
+        </Text>
 
-          <Stack
-            w={'full'}
-            display={'flex'}
-            flexDirection={'column'}
-            alignItems={'center'}
-            spacing={{ base: 4, md: 4 }}
-          >
-            {loading && <ThemedSpinner />}
-            {!loading && (
-              <SelectTrack
-                tracks={data?.tracks}
-                onChange={handleSelectChange}
-              />
-            )}
-            {selectedTrackId && <SubjectsList trackId={selectedTrackId} />}
-          </Stack>
+        <Stack
+          w={'full'}
+          display={'flex'}
+          flexDirection={'column'}
+          alignItems={'center'}
+          spacing={{ base: 4, md: 4 }}
+        >
+          <SelectTrack onChange={onSelectTrackId} />
+          {selectedTrackId && <SubjectsList trackId={selectedTrackId} />}
         </Stack>
-      </Container>
+      </Stack>
     </Container>
   );
 }
