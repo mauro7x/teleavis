@@ -1,6 +1,11 @@
 type Review {
+  # Metadata
   userId: String!
   subjectId: String!
+  createdOn: Float!
+  modifiedOn: Float
+
+  # Values
   rating: Float!
   comment: String
   amountOfWorkRating: Float

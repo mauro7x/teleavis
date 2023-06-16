@@ -44,9 +44,11 @@ model SubjectsOnTrack {
 }
 
 model Review {
-  userId    String
-  subjectId String
-  subject   Subject @relation(fields: [subjectId], references: [id])
+  userId     String
+  subjectId  String
+  subject    Subject   @relation(fields: [subjectId], references: [id])
+  createdOn  DateTime  @default(now())
+  modifiedOn DateTime?
 
   rating             Float
   comment            String?

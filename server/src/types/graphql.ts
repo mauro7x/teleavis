@@ -20,6 +20,8 @@ export class CreateReviewInput {
 export class Review {
     userId: string;
     subjectId: string;
+    createdOn: number;
+    modifiedOn?: Nullable<number>;
     rating: number;
     comment?: Nullable<string>;
     amountOfWorkRating?: Nullable<number>;
