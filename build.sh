@@ -3,8 +3,8 @@ echo "Building client..."
 cd client
 yarn
 yarn build
+cd ..
 
 echo "Building server..."
-cd ../server/
-yarn
-yarn build
+docker build -f server.Dockerfile -t server:latest .
+

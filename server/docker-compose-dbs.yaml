@@ -1,18 +1,6 @@
 version: '3.8'
 
 services:
-  server:
-    image: server:latest
-    container_name: server
-    restart: always
-    env_file:
-      - .env
-    ports:
-      - '${PORT}:${PORT}'
-    depends_on:
-      - db
-      - mongodb
-
   db:
     image: postgres:14
     container_name: db
@@ -30,6 +18,8 @@ services:
     image: mongo:latest
     container_name: mongodb
     restart: always
+    ports:
+      - 27019:27017
     volumes:
       - mongodb_data:/data/db
     environment:
@@ -38,6 +28,6 @@ services:
 
 volumes:
   postgres:
-    name: db-volume
+    name: db-volume-dev
   mongodb_data:
-    name: mongodb-sessions
+    name: mongodb-sessions-dev
