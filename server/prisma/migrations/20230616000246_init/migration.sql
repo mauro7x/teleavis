@@ -12,10 +12,10 @@ CREATE TABLE "Subject" (
     "name" TEXT NOT NULL,
     "nReviews" INTEGER NOT NULL DEFAULT 0,
     "cumRating" DOUBLE PRECISION NOT NULL DEFAULT 0,
-    "nAmountOfWorkRatings" INTEGER NOT NULL DEFAULT 0,
-    "cumAmountOfWorkRating" DOUBLE PRECISION NOT NULL DEFAULT 0,
     "nTeacherRatings" INTEGER NOT NULL DEFAULT 0,
     "cumTeacherRating" DOUBLE PRECISION NOT NULL DEFAULT 0,
+    "nAmountOfWorkRatings" INTEGER NOT NULL DEFAULT 0,
+    "cumAmountOfWorkRating" DOUBLE PRECISION NOT NULL DEFAULT 0,
     "nDifficultyRatings" INTEGER NOT NULL DEFAULT 0,
     "cumDifficultyRating" DOUBLE PRECISION NOT NULL DEFAULT 0,
 
@@ -37,9 +37,9 @@ CREATE TABLE "Review" (
     "subjectId" TEXT NOT NULL,
     "rating" DOUBLE PRECISION NOT NULL,
     "comment" TEXT,
-    "amountOfWorkRating" DOUBLE PRECISION NOT NULL,
-    "teacherRating" DOUBLE PRECISION NOT NULL,
-    "difficultyRating" DOUBLE PRECISION NOT NULL,
+    "amountOfWorkRating" DOUBLE PRECISION,
+    "teacherRating" DOUBLE PRECISION,
+    "difficultyRating" DOUBLE PRECISION,
 
     CONSTRAINT "Review_pkey" PRIMARY KEY ("userId","subjectId")
 );

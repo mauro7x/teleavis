@@ -1,21 +1,12 @@
 version: '3.8'
 
 services:
-  # server:
-  #   image: server:latest
-  #   container_name: server
-  #   env_file:
-  #     - .env
-  #   ports:
-  #     - '${PORT}:${PORT}'
-  #   depends_on:
-  #     - db
-
   db:
     image: postgres:14
     container_name: db
+    restart: always
     ports:
-      - '5433:5432'
+      - '5436:5432'
     volumes:
       - postgres:/var/lib/postgresql/data
     environment:
@@ -23,6 +14,20 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - POSTGRES_DB=${POSTGRES_DB}
 
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    restart: always
+    ports:
+      - 27019:27017
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGODB_USER}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGODB_PASS}
+
 volumes:
   postgres:
     name: db-volume
+  mongodb_data:
+    name: mongodb-sessions
