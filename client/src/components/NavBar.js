@@ -282,7 +282,9 @@ export default function NavBar() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-          <Text
+          <Link
+            as={RouterLink}
+            to={'/'}
             textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
             fontFamily={'heading'}
             color={useColorModeValue('gray.800', 'white')}
@@ -290,7 +292,7 @@ export default function NavBar() {
             fontWeight={800}
           >
             {user.username}@téléavis:~#
-          </Text>
+          </Link>
 
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
             <DesktopNav />

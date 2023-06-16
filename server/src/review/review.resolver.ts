@@ -4,6 +4,7 @@ import { CreateReviewInput } from '~/types/graphql';
 import {
   BadRequestException,
   ConflictException,
+  Logger,
   NotFoundException,
   UseGuards,
 } from '@nestjs/common';
@@ -35,12 +36,15 @@ export class ReviewResolver {
     @Args('createReviewInput') createReviewInput: CreateReviewInput,
     @GetUser() user,
   ) {
+    // TODO: Transactional logic to implement (fault tolerance)
+
     if (await this.reviewService.exists(user.id, createReviewInput.subjectId)) {
       throw new ConflictException(
         'You have already created a review for this subject',
       );
     }
 
+    // TODO: More data validation
     // Validation of ratings
     [...optionalRatings, 'rating'].forEach((ratingProp) => {
       if (
@@ -55,12 +59,11 @@ export class ReviewResolver {
 
     let result;
     try {
-      result = await this.reviewService.create(user.id, createReviewInput);
+      result = await this.reviewService.create(user, createReviewInput);
     } catch (error) {
+      Logger.warn(error);
       throw new NotFoundException('Subject not found');
     }
-
-    // TODO VALIDAR DATOS
 
     // Update subject's main rating
     await this.subjectService.addRating(
@@ -85,6 +88,8 @@ export class ReviewResolver {
     if (promises.length > 0) {
       await Promise.all(promises);
     }
+
+    Logger.log('Review created', result);
 
     return result;
   }

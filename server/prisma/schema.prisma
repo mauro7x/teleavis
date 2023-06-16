@@ -10,6 +10,17 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model User {
+  id        String @id
+  firstName String
+  lastName  String
+  name      String
+  username  String
+  email     String
+
+  reviews Review[]
+}
+
 model Track {
   id       String            @id
   name     String
@@ -44,17 +55,22 @@ model SubjectsOnTrack {
 }
 
 model Review {
+  // Metadata
   userId     String
   subjectId  String
-  subject    Subject   @relation(fields: [subjectId], references: [id])
   createdOn  DateTime  @default(now())
   modifiedOn DateTime?
 
+  // Values
   rating             Float
   comment            String?
   amountOfWorkRating Float?
   teacherRating      Float?
   difficultyRating   Float?
+
+  //  Relations
+  subject Subject @relation(fields: [subjectId], references: [id])
+  user    User    @relation(fields: [userId], references: [id])
 
   @@id([userId, subjectId])
 }

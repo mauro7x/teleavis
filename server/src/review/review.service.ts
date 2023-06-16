@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { User } from '@prisma/client';
 import { PrismaService } from '~/prisma/prisma.service';
 import { CreateReviewInput } from '~/types/graphql';
 
@@ -10,9 +11,24 @@ export class ReviewService {
     return this.prisma.review.findMany();
   }
 
-  create(userId: string, createReviewInput: CreateReviewInput) {
+  create(user: User, { subjectId, ...createReviewInput }: CreateReviewInput) {
     return this.prisma.review.create({
-      data: { userId, ...createReviewInput },
+      data: {
+        user: {
+          connectOrCreate: {
+            where: {
+              id: user.id,
+            },
+            create: user,
+          },
+        },
+        subject: {
+          connect: {
+            id: subjectId,
+          },
+        },
+        ...createReviewInput,
+      },
     });
   }
 

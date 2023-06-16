@@ -1,6 +1,5 @@
 type Review {
   # Metadata
-  userId: String!
   subjectId: String!
   createdOn: Float!
   modifiedOn: Float

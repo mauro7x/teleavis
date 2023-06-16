@@ -23,8 +23,7 @@ export const GET_SUBJECTS = gql`
       nTeacherRatings
       cumTeacherRating
       reviews {
-        userId
-        rating
+        createdOn
         comment
       }
     }
