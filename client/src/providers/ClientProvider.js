@@ -12,8 +12,8 @@ import { createClient } from 'graphql-ws';
 import { getMainDefinition } from '@apollo/client/utilities';
 import config from '../config';
 
-const { host, port, route, secureProtocols } = config.api;
-const baseUrl = `${host}:${port}/${route}`;
+const { host, route, secureProtocols } = config.api;
+const baseUrl = `${host}/${route}`;
 const wsProtocol = secureProtocols ? 'wss' : 'ws';
 const httpProtocol = secureProtocols ? 'https' : 'http';
 
