@@ -49,7 +49,7 @@ export class ReviewResolver {
     [...optionalRatings, 'rating'].forEach((ratingProp) => {
       if (
         ratingProp in createReviewInput &&
-        (createReviewInput[ratingProp] < 0 || createReviewInput[ratingProp] < 0)
+        (createReviewInput[ratingProp] < 0 || createReviewInput[ratingProp] > 5)
       ) {
         throw new BadRequestException(
           `Invalid ${ratingProp} value(s) (should be from 0 to 5)`,
