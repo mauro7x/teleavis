@@ -3,15 +3,9 @@ WORKDIR /usr/src/app
 
 # Install dependencies
 COPY ./server/package.json ./server/yarn.lock ./
-RUN yarn
+RUN yarn install
 
 # Copy application bundle
-# COPY ./data/ ./data/
-# COPY ./prisma/ ./prisma/
-# COPY ./scripts/ ./scripts/
-# COPY ./src/ ./src/
-# COPY ../client/build/ ../client/build/
-# COPY tsconfig*.json ./
 COPY ./server ./
 COPY ./client ../client/
 

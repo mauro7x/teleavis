@@ -1,0 +1,18 @@
+# Ignore everything
+*
+
+# Allow files and directories
+!/client/build
+!/server/data
+!/server/prisma
+!/server/scripts
+!/server/src
+!/server/package.json
+!/server/yarn.lock
+!/server/tsconfig*
+
+# Ignore unnecessary files inside allowed directories
+# This should go after the allowed directories
+**/.env*
+**/node_modules
+**/dist
