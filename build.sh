@@ -7,4 +7,4 @@ cd ..
 
 echo "Building server..."
 docker build -f server.Dockerfile -t server:latest .
-
+docker image prune -f

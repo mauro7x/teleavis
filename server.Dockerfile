@@ -1,13 +1,23 @@
-FROM node:16
-WORKDIR /usr/src/app
+FROM node:16 as BUILDER
+
+WORKDIR /usr/app
 
 # Install dependencies
 COPY ./server/package.json ./server/yarn.lock ./
-RUN yarn install
+RUN --mount=type=cache,target=/root/.yarn YARN_CACHE_FOLDER=/root/.yarn yarn --frozen-lockfile
+
+# -----------------------------------------------------------------------------
+
+FROM node:16
+
+WORKDIR /usr/app
+
+# Copy dependencies from previous stage
+COPY --from=BUILDER /usr/app/node_modules ./node_modules
 
 # Copy application bundle
 COPY ./server ./
-COPY ./client ../client/
+COPY ./client/build ../client/build/
 
 # Generate Prisma Client
 RUN yarn prisma generate
