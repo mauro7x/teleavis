@@ -4,9 +4,7 @@ import { GqlExecutionContext } from '@nestjs/graphql';
 @Injectable()
 export class AuthenticatedGuard implements CanActivate {
   async canActivate(context: ExecutionContext) {
-    const ctx = GqlExecutionContext.create(context);
-    const request = ctx.getContext().req;
-
+    const request = this.getRequest(context);
     return request.isAuthenticated();
   }
 
