@@ -5,16 +5,19 @@ import {
   Logger,
   Request,
   Res,
+  UseFilters,
   UseGuards,
 } from '@nestjs/common';
 import { Response } from 'express';
 import { LoginGuard } from './guards/login.guard';
 import { Issuer } from 'openid-client';
 import { GetUser } from '~/decorators/get-user.decorator';
+import { RedirectOnErrorFilter } from './error.filter';
 
 @Controller()
 export class AuthController {
   @UseGuards(LoginGuard)
+  @UseFilters(RedirectOnErrorFilter)
   @Get('/login')
   //eslint-disable-next-line @typescript-eslint/no-empty-function
   login() {}
@@ -25,6 +28,7 @@ export class AuthController {
   }
 
   @UseGuards(LoginGuard)
+  @UseFilters(RedirectOnErrorFilter)
   @Get('/callback')
   loginCallback(@Request() req, @Res() res: Response, @GetUser() user) {
     if (!user) {
