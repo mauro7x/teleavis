@@ -89,7 +89,10 @@ export class ReviewResolver {
       await Promise.all(promises);
     }
 
-    Logger.log('Review created', result);
+    Logger.log({
+      message: 'Review created',
+      review: result,
+    });
 
     return result;
   }
