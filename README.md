@@ -2,10 +2,10 @@
 
 ## Local development
 
-**Prerequisites:**
-
-- **Docker** (and `docker compose`, normally installed alongside Docker).
-- **yarn** (`npm i -g yarn`).
+> **Prerequisites:**
+> 
+> - **Docker** (and `docker compose`, normally installed alongside Docker).
+> - **yarn** (`npm i -g yarn`).
 
 1. **(If you haven't done this before)** Start local-dev databases using the provided script: `./start_dev_dbs.sh`.
 2. Start the server in one terminal: `cd server && yarn start:dev`
