@@ -27,6 +27,15 @@ export class AuthController {
   @UseGuards(LoginGuard)
   @Get('/callback')
   loginCallback(@Res() res: Response, @GetUser() user) {
+    if (!user) {
+      Logger.warn({
+        message: 'No user found in callback call, loging out',
+        headers: req.headers,
+      });
+
+      res.redirect('/logout');
+    }
+
     Logger.log({
       message: 'Session created',
       user,

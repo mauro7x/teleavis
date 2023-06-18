@@ -5,7 +5,12 @@ import { User } from '@prisma/client';
 export const GetUser = createParamDecorator(
   (data: unknown, context: ExecutionContext): User => {
     const ctx = GqlExecutionContext.create(context);
-    const rawUser = ctx.getContext().req.user.userinfo;
+    const rawUser = ctx.getContext().req?.user?.userinfo;
+
+    if (!rawUser) {
+      return null;
+    }
+
     const user: User = {
       id: rawUser.sub,
       firstName: rawUser.given_name,
