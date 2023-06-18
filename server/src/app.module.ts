@@ -33,10 +33,14 @@ import { ReviewModule } from './review/review.module';
         outputAs: 'class',
       },
     }),
-    ServeStaticModule.forRoot({
-      rootPath: join(process.cwd(), '../client/build'),
-      exclude: ['/api', '/login', '/callback', '/logout', '/user'],
-    }),
+    ...(process.env.NODE_ENV === 'prod'
+      ? [
+          ServeStaticModule.forRoot({
+            rootPath: join(process.cwd(), '../client/build'),
+            exclude: ['/api', '/login', '/callback', '/logout', '/user'],
+          }),
+        ]
+      : []),
     AuthModule,
     PrismaModule,
     TrackModule,

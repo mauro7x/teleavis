@@ -18,7 +18,7 @@ services:
     container_name: db
     restart: always
     volumes:
-      - postgres:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
     environment:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
@@ -35,7 +35,7 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=${MONGODB_PASS}
 
 volumes:
-  postgres:
-    name: db-volume
+  postgres_data:
+    name: teleavis-db-volume
   mongodb_data:
-    name: mongodb-sessions
+    name: teleavis-sessions-volume

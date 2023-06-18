@@ -26,7 +26,6 @@ async function seedTrack({ id, name, subjects }) {
 }
 
 async function main() {
-  // Clear database
   await prisma.subjectsOnTrack.deleteMany();
   await prisma.subject.deleteMany();
   await prisma.track.deleteMany();

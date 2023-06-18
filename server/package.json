@@ -1,21 +1,21 @@
 {
   "name": "teleavis-server",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
   "private": true,
+  "author": "Mauro Parafati",
+  "description": "Back-end for Telavis project",
   "license": "UNLICENSED",
   "scripts": {
-    "db:migrate": "prisma migrate dev",
-    "db:seed": "prisma db seed",
-    "db:init": "yarn db:migrate && yarn db:seed",
+    "db:reset": "prisma migrate reset --force",
+    "db:deploy": "prisma migrate deploy",
+    "db:dev": "prisma migrate dev",
     "gen:types": "ts-node scripts/generate-typings",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
-    "start:prod": "node dist/src/main",
+    "start:prod": "NODE_ENV=prod node dist/src/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix"
   },
   "prisma": {

@@ -2,6 +2,7 @@ import {
   Controller,
   Get,
   InternalServerErrorException,
+  Logger,
   Request,
   Res,
   UseGuards,
@@ -9,15 +10,14 @@ import {
 import { Response } from 'express';
 import { LoginGuard } from './guards/login.guard';
 import { Issuer } from 'openid-client';
+import { GetUser } from '~/decorators/get-user.decorator';
 
 @Controller()
 export class AuthController {
   @UseGuards(LoginGuard)
   @Get('/login')
-  login() {
-    // todo: remove?
-    console.log('login');
-  }
+  //eslint-disable-next-line @typescript-eslint/no-empty-function
+  login() {}
 
   @Get('/user')
   user(@Request() req) {
@@ -26,18 +26,28 @@ export class AuthController {
 
   @UseGuards(LoginGuard)
   @Get('/callback')
-  loginCallback(@Res() res: Response) {
+  loginCallback(@Res() res: Response, @GetUser() user) {
+    Logger.log({
+      message: 'Session created',
+      user,
+    });
     res.redirect('/');
   }
 
   @Get('/logout')
-  async logout(@Request() req, @Res() res: Response) {
+  async logout(@Request() req, @Res() res: Response, @GetUser() user) {
     const id_token = req.user ? req.user.id_token : undefined;
     req.logout((err: any) => {
       if (err) {
         throw new InternalServerErrorException(err);
       }
 
+      Logger.log({
+        message: 'Session destroyed',
+        user,
+      });
+
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       req.session.destroy(async (error: any) => {
         const TrustIssuer = await Issuer.discover(
           `${process.env.OAUTH2_CLIENT_PROVIDER_OIDC_ISSUER}/.well-known/openid-configuration`,
