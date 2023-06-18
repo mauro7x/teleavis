@@ -18,9 +18,8 @@ export default function UserProvider({ children }) {
       try {
         const response = await fetch('/user');
         const userResponse = await response.text();
-
         if (userResponse === '' || isEmpty(userResponse)) {
-          login(); // (!) Redirects
+          login(); // redirects!
         } else {
           const { userinfo } = JSON.parse(userResponse);
           setUser({
@@ -38,14 +37,6 @@ export default function UserProvider({ children }) {
     }
 
     runAsync();
-    // setUser({
-    //   name: 'Mauro Parafati',
-    //   username: 'mparafati-22',
-    //   first_name: 'Mauro',
-    //   last_name: 'Parafati',
-    //   email: 'mauro.parafati@telecom-paris.fr',
-    // });
-    // setLoading(false);
   }, []);
 
   if (loading) {

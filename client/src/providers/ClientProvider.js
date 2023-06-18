@@ -10,21 +10,20 @@ import { setContext } from '@apollo/client/link/context';
 import { GraphQLWsLink } from '@apollo/client/link/subscriptions';
 import { createClient } from 'graphql-ws';
 import { getMainDefinition } from '@apollo/client/utilities';
-import config from '../config';
-
-const { host, route, secureProtocols } = config.api;
-const baseUrl = `${host}/${route}`;
-const wsProtocol = secureProtocols ? 'wss' : 'ws';
-const httpProtocol = secureProtocols ? 'https' : 'http';
 
 const wsLink = new GraphQLWsLink(
   createClient({
-    url: wsProtocol + '://' + baseUrl,
+    // This is not tested, so if it subscriptions don't work
+    // it's probably because of this
+    uri: `/api`,
+
+    // config file has been removed so if needed, create again
+    // url: `${secureProtocols ? 'wss' : 'ws'}://${host}/api`,
   }),
 );
 
 const httpLink = createHttpLink({
-  uri: httpProtocol + '://' + baseUrl,
+  uri: `/api`,
 });
 
 const ClientProvider = ({ children }) => {

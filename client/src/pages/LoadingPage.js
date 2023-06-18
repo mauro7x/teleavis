@@ -1,5 +1,6 @@
 import React from 'react';
-import { Spinner, Flex, useColorModeValue } from '@chakra-ui/react';
+import { Flex, useColorModeValue } from '@chakra-ui/react';
+import ThemedSpinner from '../components/ThemedSpinner';
 
 export default function LoadingPage() {
   const bgColor = useColorModeValue('gray.50', 'gray.900');
@@ -11,7 +12,7 @@ export default function LoadingPage() {
       justifyContent="center"
       alignItems="center"
     >
-      <Spinner size="xl" color="red.400" />
+      <ThemedSpinner size="xl" />
     </Flex>
   );
 }
