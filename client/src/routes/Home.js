@@ -26,7 +26,7 @@ import {
   RatingInfo,
   WorkRating,
 } from '../components/ratings';
-import { computeRating } from '../utils';
+import { computeRating, parseDate } from '../utils';
 
 const Reviews = ({ data }) => {
   const bgColor = useColorModeValue('gray.100', 'gray.900');
@@ -42,20 +42,28 @@ const Reviews = ({ data }) => {
 
   return (
     <List spacing={{ base: 3, md: 3 }}>
-      {reviews.map((review, index) => (
-        <ListItem
-          key={index}
-          rounded={'md'}
-          width={'full'}
-          bg={bgColor}
-          display="flex"
-          alignItems="center"
-        >
-          <Text p={3} color={textColor} as="i">
-            "{review.comment}"
-          </Text>
-        </ListItem>
-      ))}
+      {reviews.map((review, index) => {
+        const createdOn = new Date(review.createdOn);
+        const date = parseDate(createdOn);
+
+        return (
+          <ListItem
+            key={index}
+            rounded={'md'}
+            width={'full'}
+            bg={bgColor}
+            display="flex"
+            flexDir={'column'}
+            alignItems="center"
+            p={3}
+          >
+            <Text color={textColor} as="i" marginBottom={2}>
+              "{review.comment}"
+            </Text>
+            <Text fontSize={'2xs'}>({date})</Text>
+          </ListItem>
+        );
+      })}
     </List>
   );
 };
@@ -120,14 +128,27 @@ const SubjectItem = ({ subject, ...props }) => {
       {({ isExpanded }) => (
         <>
           <h2>
-            <AccordionButton py={4}>
-              <Box as="span" flex="1" textAlign="left">
+            <AccordionButton
+              py={4}
+              display={'flex'}
+              flexDirection={{ base: 'column', md: 'row' }}
+            >
+              <Box
+                as="span"
+                flex="1"
+                textAlign={{ base: 'center', md: 'left' }}
+                marginBottom={{ base: 2, md: 0 }}
+              >
                 <Badge fontSize={'md'} marginRight={2}>
                   {subject.id}
                 </Badge>
                 {subject.name}
               </Box>
-              <Box textAlign="right" display="flex" alignItems="center">
+              <Box
+                display="flex"
+                alignItems="center"
+                textAlign={{ base: 'center', md: 'right' }}
+              >
                 {!isExpanded && rating !== null && (
                   <Text fontSize={'sm'} marginRight={2}>
                     {rating.toFixed(1)}

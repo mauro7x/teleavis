@@ -30,7 +30,11 @@ export class SubjectService {
       },
       include: {
         tracks: true,
-        reviews: true,
+        reviews: {
+          orderBy: {
+            createdOn: 'desc',
+          },
+        },
       },
     });
 

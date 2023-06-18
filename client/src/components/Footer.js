@@ -13,14 +13,23 @@ export default function Footer() {
       borderColor={useColorModeValue('gray.200', 'gray.700')}
     >
       <Text>
-        Any comments, suggestions, or bug reports, please send an email to{' '}
-        <Link color="red.400" href="mauro.parafati@telecom-paris.fr">
-          mauro.parafati@telecom-paris.fr
+        Any comments, suggestions, or bug reports, please{' '}
+        <Link color="red.400" href="create an issue">
+          create an issue
         </Link>{' '}
-        or contact me on{' '}
+        on our{' '}
+        <Link color="red.400" href="https://github.com/mauro7x/teleavis">
+          GitHub repository
+        </Link>
+        , or contact me (
+        <Link color="red.400" href="mailto:mauro.parafati@telecom-paris.fr">
+          Email
+        </Link>
+        ,{' '}
         <Link color="red.400" href="https://www.facebook.com/Mauro7x/">
           Facebook
         </Link>
+        )
       </Text>
     </Box>
   );
