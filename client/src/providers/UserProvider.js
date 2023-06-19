@@ -1,9 +1,9 @@
 import React, { useState, createContext, useContext, useEffect } from 'react';
 import { isEmpty } from '../utils';
-import { login } from '../api/session';
-import LoadingPage from '../pages/LoadingPage';
+import LoadingPage from '../routes/LoadingPage';
 
 const UserContext = createContext();
+
 export function useUser() {
   return useContext(UserContext);
 }
@@ -18,9 +18,7 @@ export default function UserProvider({ children }) {
       try {
         const response = await fetch('/user');
         const userResponse = await response.text();
-        if (userResponse === '' || isEmpty(userResponse)) {
-          login(); // redirects!
-        } else {
+        if (userResponse !== '' && !isEmpty(userResponse)) {
           const { userinfo } = JSON.parse(userResponse);
           setUser({
             name: userinfo.name,
@@ -29,8 +27,8 @@ export default function UserProvider({ children }) {
             last_name: userinfo.family_name,
             email: userinfo.email,
           });
-          setLoading(false);
         }
+        setLoading(false);
       } catch (error) {
         console.error('Error', error);
       }

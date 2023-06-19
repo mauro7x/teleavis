@@ -26,7 +26,8 @@ import {
   RatingInfo,
   WorkRating,
 } from '../components/ratings';
-import { computeRating, parseDate } from '../utils';
+import { computeRating, isEmpty, parseDate } from '../utils';
+import { useUser } from '../providers/UserProvider';
 
 const Reviews = ({ data }) => {
   const bgColor = useColorModeValue('gray.100', 'gray.900');
@@ -60,7 +61,9 @@ const Reviews = ({ data }) => {
             <Text color={textColor} as="i" marginBottom={2}>
               "{review.comment}"
             </Text>
-            <Text fontSize={'2xs'}>({date})</Text>
+            <Text color={textColor} fontSize={'2xs'}>
+              ({date})
+            </Text>
           </ListItem>
         );
       })}
@@ -216,6 +219,9 @@ const SubjectsList = ({ trackId }) => {
 
 export default function Home() {
   const descriptionTextColor = useColorModeValue('gray.500', 'gray.300');
+  const strongTextColor = useColorModeValue('gray.700', 'gray.100');
+  const user = useUser();
+  const isLoggedIn = !isEmpty(user);
   const [selectedTrackId, setSelectedTrackId] = useState('');
   const onSelectTrackId = useCallback(
     (e) => setSelectedTrackId(e.target.value),
@@ -227,7 +233,7 @@ export default function Home() {
       <Stack
         textAlign={'center'}
         align={'center'}
-        spacing={{ base: 8, md: 10 }}
+        spacing={{ base: 4, md: 6 }}
         py={{ base: 8, md: 10 }}
       >
         <Heading
@@ -243,9 +249,26 @@ export default function Home() {
         <Text color={descriptionTextColor} maxW={'3xl'}>
           On this site you will find opinions and reviews from students about
           the different subjects in the second year of Télécom Paris. To get
-          started, please select a study track below.
+          started, please select a study track below.{' '}
         </Text>
-
+        {!isLoggedIn && (
+          <Text color={descriptionTextColor} maxW={'3xl'} as="i">
+            Note: to write your opinion on a subject, you must{' '}
+            <Text
+              as={'a'}
+              display={'inline'}
+              fontWeight={'bold'}
+              href="/login"
+              _hover={{
+                color: strongTextColor,
+                textDecorationLine: 'underline',
+              }}
+            >
+              log in
+            </Text>
+            !
+          </Text>
+        )}
         <Stack
           w={'full'}
           display={'flex'}
