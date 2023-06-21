@@ -1,0 +1,6 @@
+{
+  "Authentication": {
+    "CookieSameSiteMode": "Lax",
+    "CheckSessionCookieSameSiteMode": "Lax"
+  }
+}

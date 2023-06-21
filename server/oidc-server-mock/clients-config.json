@@ -1,0 +1,38 @@
+[
+  {
+    "ClientId": "mock-client-id",
+    "ClientSecrets": ["mock-client-secret"],
+    "RequirePkce": false,
+    "Description": "Client for local dev over moked OIDC server",
+    "AllowedGrantTypes": ["authorization_code"],
+    "RedirectUris": ["http://localhost:3000/callback"],
+    "AllowedScopes": ["openid", "profile", "email"],
+    "Claims": [
+      {
+        "Type": "string_claim",
+        "Value": "name",
+        "ValueType": "string"
+      },
+      {
+        "Type": "string_claim",
+        "Value": "preferred_username",
+        "ValueType": "string"
+      },
+      {
+        "Type": "string_claim",
+        "Value": "given_name",
+        "ValueType": "string"
+      },
+      {
+        "Type": "string_claim",
+        "Value": "family_name",
+        "ValueType": "string"
+      },
+      {
+        "Type": "string_claim",
+        "Value": "email",
+        "ValueType": "string"
+      }
+    ]
+  }
+]

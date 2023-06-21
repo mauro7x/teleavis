@@ -1,0 +1,62 @@
+[
+  {
+    "SubjectId": "1",
+    "Username": "user",
+    "Password": "pass",
+    "Claims": [
+      { "Type": "name", "Value": "Local Dev", "ValueType": "string" },
+      {
+        "Type": "preferred_username",
+        "Value": "localdev-22",
+        "ValueType": "string"
+      },
+      { "Type": "given_name", "Value": "Local", "ValueType": "string" },
+      { "Type": "family_name", "Value": "Dev", "ValueType": "string" },
+      {
+        "Type": "email",
+        "Value": "local.dev@teleavis.rezel.net",
+        "ValueType": "string"
+      }
+    ]
+  },
+  {
+    "SubjectId": "2",
+    "Username": "user2",
+    "Password": "pass",
+    "Claims": [
+      { "Type": "name", "Value": "Local Dev 2", "ValueType": "string" },
+      {
+        "Type": "preferred_username",
+        "Value": "localdev2-22",
+        "ValueType": "string"
+      },
+      { "Type": "given_name", "Value": "Local2", "ValueType": "string" },
+      { "Type": "family_name", "Value": "Dev", "ValueType": "string" },
+      {
+        "Type": "email",
+        "Value": "local.dev.2@teleavis.rezel.net",
+        "ValueType": "string"
+      }
+    ]
+  },
+  {
+    "SubjectId": "3",
+    "Username": "user3",
+    "Password": "pass",
+    "Claims": [
+      { "Type": "name", "Value": "Local Dev 3", "ValueType": "string" },
+      {
+        "Type": "preferred_username",
+        "Value": "localdev3-22",
+        "ValueType": "string"
+      },
+      { "Type": "given_name", "Value": "Local3", "ValueType": "string" },
+      { "Type": "family_name", "Value": "Dev", "ValueType": "string" },
+      {
+        "Type": "email",
+        "Value": "local.dev.3@teleavis.rezel.net",
+        "ValueType": "string"
+      }
+    ]
+  }
+]
