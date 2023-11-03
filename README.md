@@ -34,4 +34,4 @@ Some users were already configured:
 ### Known issues
 
 - Automatic redirection after log out is not working with the fake provider, so please once you've logged out, manually navigate to the root of the application ([http://localhost:3000/](http://localhost:3000/)).
-- With `start_dev_deps.sh` Prisma can crash with `Query engine library for current platform "debian-openssl-3.0.x" could not be found`. You can modify the `server/prisma/schema.prisma` according to the error message and relaunch the script.
+- With `start_dev_deps.sh` Prisma can crash with `Query engine library for current platform "xxx" could not be found`. You can modify the `server/prisma/schema.prisma` according to the error message and relaunch the script.
