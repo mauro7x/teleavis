@@ -7,8 +7,9 @@
 > - **Docker** (and `docker compose`, normally installed alongside Docker).
 > - **yarn** (`npm i -g yarn`).
 
-1. **(If you haven't done this before)** Start local-dev dependencies (databases and fake oidc provider) using the provided script: `./start_dev_deps.sh`.
-2. Start the server in one terminal: `cd server && yarn start:dev`
+1. Create a `server/.env`, an [example](server/.env.example) is available
+2. **(If you haven't done this before)** Start local-dev dependencies (databases and fake oidc provider) using the provided script: `./start_dev_deps.sh`.
+3. Start the server in one terminal: `cd server && yarn start:dev`
    > Note: the first time you run this command after initializing dev-deps, you may find an error:
    >
    > ```bash
@@ -16,8 +17,8 @@
    > ```
    >
    > Just hit `Ctrl + C` and re-run the command.
-3. Start the client in another terminal: `cd client && yarn start:dev`
-4. Go to `http://localhost:3000/` and develop :P
+4. Start the client in another terminal: `cd client && yarn start:dev`
+5. Go to `http://localhost:3000/` and develop :P
 
 ### Credentials
 
