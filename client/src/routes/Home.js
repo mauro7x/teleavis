@@ -125,10 +125,10 @@ const SubjectItemDetails = ({
   );
 };
 
-const ReviewIco = ({ number = 0, ico = MdRateReview }) => {
+const ReviewIco = ({ number = 0, ico = MdRateReview, title = "" }) => {
   const color = number === 0 ? 'red' : number < 10 ? 'orange' : 'green';
   return (
-    <Badge colorScheme="transparent" position="relative" display="inline-block">
+    <Badge colorScheme="transparent" position="relative" display="inline-block" title={title}>
       <Icon as={ico} boxSize={6} />
       <Badge
         colorScheme={color}
@@ -187,8 +187,8 @@ const SubjectItem = ({ subject, ...props }) => {
                     readOnly
                   />
                 )}
-                {!isExpanded && <ReviewIco ico={MdReviews} number={nReviews} />}
-                {!isExpanded && <ReviewIco number={nbTextReviews} />}
+                {!isExpanded && <ReviewIco ico={MdReviews} number={nReviews} title="Number of reviews"/>}
+                {!isExpanded && <ReviewIco number={nbTextReviews} title="Number of text reviews" />}
                 <AccordionIcon marginLeft={5} />
               </Box>
             </AccordionButton>
