@@ -3,6 +3,7 @@ import { Select, useColorModeValue } from '@chakra-ui/react';
 import { useQuery } from '@apollo/client';
 import { GET_TRACKS } from '../api/queries';
 import ThemedSpinner from './ThemedSpinner';
+import ErrorMsg from './ErrorMsg';
 
 export default function SelectTrack(props) {
   const { error, loading, data } = useQuery(GET_TRACKS);
@@ -10,7 +11,7 @@ export default function SelectTrack(props) {
   const bgColor = useColorModeValue('white', 'gray.800');
 
   if (loading) return <ThemedSpinner />;
-  if (error) return <p>Error: {error.message}</p>;
+  if (error) return <ErrorMsg error={error} />;
 
   return (
     <Select
