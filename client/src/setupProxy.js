@@ -1,8 +1,10 @@
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
-const port = process.env.REACT_APP_DEV_SERVER_PORT || 3000;
+const devPort = 3001;
+const prodPort = 3000;
 
 module.exports = function (app) {
+  const port = process.env.NODE_ENV.startsWith('prod') ? prodPort : devPort;
   app.use(
     ['/api', '/logout', '/login', '/user', '/callback'],
     createProxyMiddleware({

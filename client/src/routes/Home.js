@@ -17,10 +17,11 @@ import {
   useColorModeValue,
   Icon,
 } from '@chakra-ui/react';
-import { FiMessageSquare as MsgIco } from 'react-icons/fi';
+import { MdReviews, MdRateReview } from 'react-icons/md';
 import { useQuery } from '@apollo/client';
 import { GET_SUBJECTS } from '../api/queries';
 import ThemedSpinner from '../components/ThemedSpinner';
+import ErrorMsg from '../components/ErrorMsg';
 import SelectTrack from '../components/SelectTrack';
 import {
   DifficultyRating,
@@ -124,21 +125,20 @@ const SubjectItemDetails = ({
   );
 };
 
-const TextReviewNumber = ({ number }) => {
+const ReviewIco = ({ number = 0, ico = MdRateReview }) => {
+  const color = number === 0 ? 'red' : number < 10 ? 'orange' : 'green';
   return (
     <Badge colorScheme="transparent" position="relative" display="inline-block">
-      <Icon as={MsgIco} boxSize={6} />
-      {number > 0 && (
-        <Badge
-          colorScheme="red"
-          position="absolute"
-          top="-1"
-          right="-1"
-          borderRadius="50%"
-        >
-          {number}
-        </Badge>
-      )}
+      <Icon as={ico} boxSize={6} />
+      <Badge
+        colorScheme={color}
+        position="absolute"
+        top="-1"
+        right="-1"
+        borderRadius="50%"
+      >
+        {number}
+      </Badge>
     </Badge>
   );
 };
@@ -187,14 +187,8 @@ const SubjectItem = ({ subject, ...props }) => {
                     readOnly
                   />
                 )}
-                {!isExpanded && (
-                  <Text marginLeft={2} fontSize={'sm'}>
-                    ({nReviews})
-                  </Text>
-                )}
-                {!isExpanded && (
-                  <TextReviewNumber number={nbTextReviews} />
-                )}
+                {!isExpanded && <ReviewIco ico={MdReviews} number={nReviews} />}
+                {!isExpanded && <ReviewIco number={nbTextReviews} />}
                 <AccordionIcon marginLeft={5} />
               </Box>
             </AccordionButton>
@@ -217,7 +211,7 @@ const SubjectsList = ({ trackId }) => {
   });
 
   if (loading) return <ThemedSpinner />;
-  if (error) return <p>Error: {error.message}</p>;
+  if (error) return <ErrorMsg error={error.message} />;
 
   const subjects = data.subjects;
 

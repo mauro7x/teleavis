@@ -7,6 +7,7 @@
 > - **Docker** (and `docker compose`, normally installed alongside Docker).
 > - **yarn** (`npm i -g yarn`).
 
+0. Install dependencies `cd client && yarn && cd ../server && yarn`
 1. Create a `server/.env`, an [example](server/.env.example) is available
 2. **(If you haven't done this before)** Start local-dev dependencies (databases and fake oidc provider) using the provided script: `./start_dev_deps.sh`.
 3. Start the server in one terminal: `cd server && yarn start:dev`
@@ -32,4 +33,5 @@ Some users were already configured:
 
 ### Known issues
 
-- Automatic redirection after log out is not working with the fake provider, so please once you've logged out, manually navigate to the root of the application (http://localhost:3000/).
+- Automatic redirection after log out is not working with the fake provider, so please once you've logged out, manually navigate to the root of the application ([http://localhost:3000/](http://localhost:3000/)).
+- With `start_dev_deps.sh` Prisma can crash with `Query engine library for current platform "debian-openssl-3.0.x" could not be found`. You can modify the `server/prisma/schema.prisma` according to the error message and relaunch the script.
