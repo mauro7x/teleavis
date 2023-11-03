@@ -15,7 +15,9 @@ import {
   Stack,
   Text,
   useColorModeValue,
+  Icon,
 } from '@chakra-ui/react';
+import { FiMessageSquare as MsgIco } from 'react-icons/fi';
 import { useQuery } from '@apollo/client';
 import { GET_SUBJECTS } from '../api/queries';
 import ThemedSpinner from '../components/ThemedSpinner';
@@ -122,9 +124,29 @@ const SubjectItemDetails = ({
   );
 };
 
+const TextReviewNumber = ({ number }) => {
+  return (
+    <Badge colorScheme="transparent" position="relative" display="inline-block">
+      <Icon as={MsgIco} boxSize={6} />
+      {number > 0 && (
+        <Badge
+          colorScheme="red"
+          position="absolute"
+          top="-1"
+          right="-1"
+          borderRadius="50%"
+        >
+          {number}
+        </Badge>
+      )}
+    </Badge>
+  );
+};
+
 const SubjectItem = ({ subject, ...props }) => {
-  const { nReviews, cumRating } = subject;
+  const { nReviews, cumRating, reviews } = subject;
   const rating = computeRating(nReviews, cumRating);
+  const nbTextReviews = reviews.filter((oneReview) => oneReview.comment).length;
 
   return (
     <AccordionItem {...props}>
@@ -169,6 +191,9 @@ const SubjectItem = ({ subject, ...props }) => {
                   <Text marginLeft={2} fontSize={'sm'}>
                     ({nReviews})
                   </Text>
+                )}
+                {!isExpanded && (
+                  <TextReviewNumber number={nbTextReviews} />
                 )}
                 <AccordionIcon marginLeft={5} />
               </Box>
