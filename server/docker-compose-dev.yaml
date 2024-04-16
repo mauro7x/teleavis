@@ -31,7 +31,7 @@ services:
     container_name: oidc-server-mock
     restart: always
     ports:
-      - '4011:80'
+      - '4011:8080'
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       SERVER_OPTIONS_PATH: /tmp/config/server-options.json
