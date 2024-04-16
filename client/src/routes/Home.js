@@ -84,6 +84,9 @@ const SubjectItemDetails = ({
     reviews,
   },
 }) => {
+  const user = useUser();
+  const isLoggedIn = !isEmpty(user);
+
   return (
     <Stack spacing={{ base: 5, md: 5 }} width="full">
       <SimpleGrid
@@ -117,7 +120,7 @@ const SubjectItemDetails = ({
           fontWeight={700}
         />
       </SimpleGrid>
-      <Reviews data={reviews} />
+      {isLoggedIn ? <Reviews data={reviews} /> : null}
     </Stack>
   );
 };
