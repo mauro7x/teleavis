@@ -1,6 +1,8 @@
 #!/bin/bash
 
 cd server
+echo "Installing server dependencies..."
+yarn install
 echo "Starting dev dependencies..."
 docker compose -f docker-compose-dev.yaml up -d
 echo "Dev dependencies started"
