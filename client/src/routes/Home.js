@@ -15,10 +15,13 @@ import {
   Stack,
   Text,
   useColorModeValue,
+  Icon,
 } from '@chakra-ui/react';
+import { MdReviews, MdRateReview } from 'react-icons/md';
 import { useQuery } from '@apollo/client';
 import { GET_SUBJECTS } from '../api/queries';
 import ThemedSpinner from '../components/ThemedSpinner';
+import ErrorMsg from '../components/ErrorMsg';
 import SelectTrack from '../components/SelectTrack';
 import {
   DifficultyRating,
@@ -125,9 +128,28 @@ const SubjectItemDetails = ({
   );
 };
 
+const ReviewIco = ({ number = 0, ico = MdRateReview, title = "" }) => {
+  const color = number === 0 ? 'red' : number < 10 ? 'orange' : 'green';
+  return (
+    <Badge colorScheme="transparent" position="relative" display="inline-block" title={title}>
+      <Icon as={ico} boxSize={6} />
+      <Badge
+        colorScheme={color}
+        position="absolute"
+        top="-1"
+        right="-1"
+        borderRadius="50%"
+      >
+        {number}
+      </Badge>
+    </Badge>
+  );
+};
+
 const SubjectItem = ({ subject, ...props }) => {
-  const { nReviews, cumRating } = subject;
+  const { nReviews, cumRating, reviews } = subject;
   const rating = computeRating(nReviews, cumRating);
+  const nbTextReviews = reviews.filter((oneReview) => oneReview.comment).length;
 
   return (
     <AccordionItem {...props}>
@@ -168,11 +190,8 @@ const SubjectItem = ({ subject, ...props }) => {
                     readOnly
                   />
                 )}
-                {!isExpanded && (
-                  <Text marginLeft={2} fontSize={'sm'}>
-                    ({nReviews})
-                  </Text>
-                )}
+                {!isExpanded && <ReviewIco ico={MdReviews} number={nReviews} title="Number of reviews"/>}
+                {!isExpanded && <ReviewIco number={nbTextReviews} title="Number of text reviews" />}
                 <AccordionIcon marginLeft={5} />
               </Box>
             </AccordionButton>
@@ -195,7 +214,7 @@ const SubjectsList = ({ trackId }) => {
   });
 
   if (loading) return <ThemedSpinner />;
-  if (error) return <p>Error: {error.message}</p>;
+  if (error) return <ErrorMsg error={error.message} />;
 
   const subjects = data.subjects;
 
