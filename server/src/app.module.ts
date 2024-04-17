@@ -1,6 +1,9 @@
 import { join } from 'path';
+import {
+  ApolloServerPluginLandingPageLocalDefault,
+  ApolloServerPluginLandingPageProductionDefault,
+} from '@apollo/server/plugin/landingPage/default';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
-import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
@@ -26,14 +29,21 @@ import { ReviewModule } from './review/review.module';
         // 'subscriptions-transport-ws': true,
       },
       playground: false,
-      plugins: [ApolloServerPluginLandingPageLocalDefault()],
+      plugins: [
+        process.env.NODE_ENV === 'production'
+          ? ApolloServerPluginLandingPageProductionDefault({
+              graphRef: 'my-graph-id@my-graph-variant',
+              footer: false,
+            })
+          : ApolloServerPluginLandingPageLocalDefault({ footer: false }),
+      ],
       typePaths: ['./**/*.graphql'],
       definitions: {
         path: join(process.cwd(), 'src/types/graphql.ts'),
         outputAs: 'class',
       },
     }),
-    ...(process.env.NODE_ENV === 'prod'
+    ...(process.env.NODE_ENV === 'production'
       ? [
           ServeStaticModule.forRoot({
             rootPath: join(process.cwd(), '../client/build'),
