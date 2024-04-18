@@ -2,6 +2,7 @@
 echo "Building client..."
 cd client
 yarn
+npx update-browserslist-db@latest
 yarn build
 echo "Client built..."
 cd ..
