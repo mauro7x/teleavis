@@ -86,6 +86,9 @@ const SubjectItemDetails = ({
 }) => {
   const user = useUser();
   const isLoggedIn = !isEmpty(user);
+  const queryParameters = new URLSearchParams(window.location.search);
+  const promoCode = queryParameters.get('promotional_code');
+  const showReviews = isLoggedIn || promoCode === 'tp2024';
 
   return (
     <Stack spacing={{ base: 5, md: 5 }} width="full">
@@ -120,7 +123,7 @@ const SubjectItemDetails = ({
           fontWeight={700}
         />
       </SimpleGrid>
-      {isLoggedIn ? <Reviews data={reviews} /> : null}
+      {showReviews ? <Reviews data={reviews} /> : null}
     </Stack>
   );
 };
