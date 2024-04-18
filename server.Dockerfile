@@ -1,4 +1,4 @@
-FROM node:16 as BUILDER
+FROM node:20 as BUILDER
 
 WORKDIR /usr/app
 
@@ -8,7 +8,7 @@ RUN --mount=type=cache,target=/root/.yarn YARN_CACHE_FOLDER=/root/.yarn yarn --f
 
 # -----------------------------------------------------------------------------
 
-FROM node:16
+FROM node:20
 
 WORKDIR /usr/app
 
