@@ -12,7 +12,10 @@ export class ReviewService {
   }
 
   findByUserId(userId: string) {
-    return this.prisma.review.findMany({ where: { userId } });
+    return this.prisma.review.findMany({
+      where: { userId },
+      include: { subject: true },
+    });
   }
 
   create(user: User, { subjectId, ...createReviewInput }: CreateReviewInput) {

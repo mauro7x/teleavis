@@ -10,6 +10,9 @@ type Review {
   amountOfWorkRating: Float
   teacherRating: Float
   difficultyRating: Float
+
+  # Relations
+  subject: Subject
 }
 
 input CreateReviewInput {

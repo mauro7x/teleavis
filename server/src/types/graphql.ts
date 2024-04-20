@@ -26,6 +26,7 @@ export class Review {
     amountOfWorkRating?: Nullable<number>;
     teacherRating?: Nullable<number>;
     difficultyRating?: Nullable<number>;
+    subject?: Nullable<Subject>;
 }
 
 export abstract class IQuery {
