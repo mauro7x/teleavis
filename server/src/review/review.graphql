@@ -12,10 +12,6 @@ type Review {
   difficultyRating: Float
 }
 
-type Query {
-  reviews: [Review]!
-}
-
 input CreateReviewInput {
   subjectId: String!
   rating: Float!
@@ -23,6 +19,11 @@ input CreateReviewInput {
   amountOfWorkRating: Float
   teacherRating: Float
   difficultyRating: Float
+}
+
+type Query {
+  reviews: [Review]!
+  myReviews: [Review]!
 }
 
 type Mutation {
