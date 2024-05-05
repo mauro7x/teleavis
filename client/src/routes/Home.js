@@ -7,7 +7,6 @@ import {
   AccordionPanel,
   Badge,
   Box,
-  Container,
   Heading,
   List,
   ListItem,
@@ -28,6 +27,7 @@ import {
 } from '../components/ratings';
 import { computeRating, isEmpty, parseDate } from '../utils';
 import { useUser } from '../providers/UserProvider';
+import SectionContainer from '../components/SectionContainer';
 
 const Reviews = ({ data }) => {
   const bgColor = useColorModeValue('gray.100', 'gray.900');
@@ -44,8 +44,7 @@ const Reviews = ({ data }) => {
   return (
     <List spacing={{ base: 3, md: 3 }}>
       {reviews.map((review, index) => {
-        const createdOn = new Date(review.createdOn);
-        const date = parseDate(createdOn);
+        const date = parseDate(review.createdOn);
 
         return (
           <ListItem
@@ -235,7 +234,7 @@ export default function Home() {
   );
 
   return (
-    <Container maxW={'5xl'}>
+    <SectionContainer>
       <Stack
         textAlign={'center'}
         align={'center'}
@@ -286,6 +285,6 @@ export default function Home() {
           {selectedTrackId && <SubjectsList trackId={selectedTrackId} />}
         </Stack>
       </Stack>
-    </Container>
+    </SectionContainer>
   );
 }

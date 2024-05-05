@@ -1,19 +1,16 @@
 import { Rating as MUIRating } from '@mui/material';
-
-import { useColorModeValue } from '@chakra-ui/react';
-import { Book, BookOutlined } from '@mui/icons-material';
+import { BookOutlined } from '@mui/icons-material';
+import { useColors } from '../../providers/ColorsProvider';
+import { WorkIcon } from './ThemedIcons';
 
 export const WorkRating = (props) => {
-  const ratingBorderColor = useColorModeValue('default', '#999999');
+  const {
+    icons: { ratingBorderColor },
+  } = useColors();
 
   return (
     <MUIRating
-      icon={
-        <Book
-          style={{ color: useColorModeValue('#2b5399', '#3c6aba') }}
-          fontSize="inherit"
-        />
-      }
+      icon={<WorkIcon />}
       emptyIcon={
         <BookOutlined style={{ color: ratingBorderColor }} fontSize="inherit" />
       }

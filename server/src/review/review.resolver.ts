@@ -31,6 +31,13 @@ export class ReviewResolver {
   }
 
   @UseGuards(AuthenticatedGuard)
+  @Query()
+  myReviews(@GetUser() user) {
+    Logger.log({ msg: 'User', user });
+    return this.reviewService.findByUserId(user.id);
+  }
+
+  @UseGuards(AuthenticatedGuard)
   @Mutation()
   async createReview(
     @Args('createReviewInput') createReviewInput: CreateReviewInput,

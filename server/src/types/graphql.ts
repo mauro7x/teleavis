@@ -26,10 +26,13 @@ export class Review {
     amountOfWorkRating?: Nullable<number>;
     teacherRating?: Nullable<number>;
     difficultyRating?: Nullable<number>;
+    subject?: Nullable<Subject>;
 }
 
 export abstract class IQuery {
     abstract reviews(): Nullable<Review>[] | Promise<Nullable<Review>[]>;
+
+    abstract myReviews(): Nullable<Review>[] | Promise<Nullable<Review>[]>;
 
     abstract subjects(trackId?: Nullable<string>): Nullable<Subject>[] | Promise<Nullable<Subject>[]>;
 
