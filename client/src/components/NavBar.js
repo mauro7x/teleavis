@@ -17,6 +17,7 @@ import ColorModeToggle from './ColorModeToggle';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { isEmpty } from '../utils';
 import NavBarButton from './NavBarButton';
+import { usePwd } from '../hooks/usePwd';
 
 const DesktopNav = () => {
   const user = useUser();
@@ -139,6 +140,7 @@ export default function NavBar() {
   const { isOpen, onToggle, onClose } = useDisclosure();
   const user = useUser();
   const isLoggedIn = !isEmpty(user);
+  const location = usePwd();
 
   return (
     <Box>
@@ -181,7 +183,11 @@ export default function NavBar() {
             fontSize={'m'}
             fontWeight={800}
           >
-            {isLoggedIn ? user.username : 'guest'}@téléavis:~
+            {isLoggedIn ? user.username : 'guest'}@
+            <Text as={'span'} color={'red.400'}>
+              {location}
+            </Text>
+            :~
             {isLoggedIn ? '#' : '$'}
           </Link>
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>

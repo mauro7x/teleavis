@@ -1,19 +1,16 @@
 import { Rating as MUIRating } from '@mui/material';
-
-import { useColorModeValue } from '@chakra-ui/react';
-import { Psychology, PsychologyOutlined } from '@mui/icons-material';
+import { PsychologyOutlined } from '@mui/icons-material';
+import { useColors } from '../../providers/ColorsProvider';
+import { DifficultyIcon } from './ThemedIcons';
 
 export const DifficultyRating = (props) => {
-  const ratingBorderColor = useColorModeValue('default', '#999999');
+  const {
+    icons: { ratingBorderColor },
+  } = useColors();
 
   return (
     <MUIRating
-      icon={
-        <Psychology
-          style={{ color: useColorModeValue('#c73636', '#f04f4f') }}
-          fontSize="inherit"
-        />
-      }
+      icon={<DifficultyIcon />}
       emptyIcon={
         <PsychologyOutlined
           style={{ color: ratingBorderColor }}

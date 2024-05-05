@@ -1,9 +1,11 @@
 import { Rating as MUIRating } from '@mui/material';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
-import { useColorModeValue } from '@chakra-ui/react';
+import { useColors } from '../../providers/ColorsProvider';
 
 export const Rating = (props) => {
-  const ratingBorderColor = useColorModeValue('default', '#999999');
+  const {
+    icons: { ratingBorderColor },
+  } = useColors();
 
   return (
     <MUIRating

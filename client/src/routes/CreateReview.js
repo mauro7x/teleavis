@@ -3,7 +3,6 @@ import { useMutation } from '@apollo/client';
 import { CREATE_REVIEW } from '../api/mutations';
 import {
   Button,
-  Container,
   FormControl,
   HStack,
   Heading,
@@ -25,6 +24,7 @@ import {
   RatingBox,
   WorkRating,
 } from '../components/ratings';
+import SectionContainer from '../components/SectionContainer';
 
 export default function CreateReview() {
   const [createReview] = useMutation(CREATE_REVIEW);
@@ -133,7 +133,7 @@ export default function CreateReview() {
   );
 
   return (
-    <Container maxW={'5xl'}>
+    <SectionContainer>
       <Stack
         textAlign={'center'}
         align={'center'}
@@ -284,6 +284,6 @@ export default function CreateReview() {
           </HStack>
         </Stack>
       </Stack>
-    </Container>
+    </SectionContainer>
   );
 }

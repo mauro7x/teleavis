@@ -38,3 +38,21 @@ export const GET_SUBJECT_NAMES = gql`
     }
   }
 `;
+
+export const GET_MY_REVIEWS = gql`
+  query {
+    myReviews {
+      subject {
+        id
+        name
+      }
+      teacherRating
+      rating
+      modifiedOn
+      difficultyRating
+      createdOn
+      comment
+      amountOfWorkRating
+    }
+  }
+`;
