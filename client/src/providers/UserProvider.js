@@ -1,6 +1,7 @@
 import React, { useState, createContext, useContext, useEffect } from 'react';
 import { isEmpty } from '../utils';
 import LoadingPage from '../routes/LoadingPage';
+import { Center } from '@chakra-ui/react';
 
 const UserContext = createContext();
 
@@ -31,14 +32,22 @@ export default function UserProvider({ children }) {
         setLoading(false);
       } catch (error) {
         console.error('Error', error);
+        setLoading(null);
       }
     }
 
     runAsync();
   }, []);
 
-  if (loading) {
+  if (loading === true) {
     return <LoadingPage />;
+  }
+  if (loading === null) {
+    return (
+      <Center bg="tomato" h="100vh" color="white">
+        The API is not working, cannot get the user !
+      </Center>
+    );
   }
 
   return <UserContext.Provider value={user}>{children}</UserContext.Provider>;
